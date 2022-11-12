@@ -1,6 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:garage_client/utils/theme/themes.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+
 import 'package:riverpod/riverpod.dart';
 
 class ThemeManager extends StateNotifier<ThemeData> {
@@ -18,6 +20,6 @@ class ThemeManager extends StateNotifier<ThemeData> {
 
     state = currentThemeData;
 
-    GLogger.info('Theme is changed');
+    log('Theme is changed');
   }
 }

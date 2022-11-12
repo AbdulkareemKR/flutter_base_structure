@@ -1,12 +1,11 @@
 import 'dart:developer';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_core/models/available_service.dart';
-import 'package:garage_core/models/serivce_provider.dart';
-import 'package:garage_core/models/service.dart';
-import 'package:garage_core/models/translatable.dart';
-import 'package:garage_core/services/firestore_repo.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'package:garage_client/global_services/models/available_service.dart';
+import 'package:garage_client/global_services/models/serivce_provider.dart';
+import 'package:garage_client/global_services/models/service.dart';
+import 'package:garage_client/global_services/models/translatable.dart';
+import 'package:garage_client/global_services/services/firestore_repo.dart';
 
 final servicesRepoProvider = Provider<ServicesRepo>(
   (ref) => ServicesRepo(firestoreRepo: ref.watch(firestoreRepoProvider)),
@@ -39,7 +38,8 @@ class ServicesRepo {
         return null;
       }
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return null;
     }
   }
@@ -55,7 +55,8 @@ class ServicesRepo {
         return null;
       }
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return null;
     }
   }
@@ -182,7 +183,8 @@ class ServicesRepo {
           try {
             serviceProvidersList.add(ServiceProvider.fromMap(doc.data()));
           } catch (e) {
-            e.logException();
+            log('$e');
+            ;
           }
         }
       }
@@ -194,7 +196,8 @@ class ServicesRepo {
 
       return filteredList;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return [];
     }
   }
@@ -218,16 +221,17 @@ class ServicesRepo {
           final service = AvailableService.fromMap(serviceData);
           return service;
         } else {
-          GLogger.warning('the requested timeslot was not found');
+          log('the requested timeslot was not found');
           throw Exception('The requested service was not found');
         }
       } else {
-        GLogger.warning('the requested service was not found');
+        log('the requested service was not found');
         throw Exception('The requested service was not found');
       }
     } catch (e) {
-      e.logException();
-      GLogger.warning('the requested service was not found');
+      log('$e');
+      ;
+      log('the requested service was not found');
       throw Exception('The requested service was not found');
     }
   }
@@ -243,11 +247,12 @@ class ServicesRepo {
 
         return servicesList;
       } else {
-        GLogger.warning('no services');
+        log('no services');
         return [];
       }
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return [];
     }
   }

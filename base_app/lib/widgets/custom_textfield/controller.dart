@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:garage_client/constants/colors_const.dart';
-import 'package:garage_core/widgets/custom_textfield/textfield_types.dart';
+import 'package:garage_client/global_services/widgets/custom_textfield/textfield_types.dart';
 
 class CustomTextFieldWidgetController {
   Color getTextFieldColor(TextFieldType type, bool isValid, bool showValid) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:garage_client/constants/colors_const.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garage_client/widgets/otp_text_field/otp_controller.dart';
-import 'package:garage_core/constants/constants.dart';
+import 'package:garage_client/global_services/constants/constants.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
 
 class OtpField extends StatefulWidget {

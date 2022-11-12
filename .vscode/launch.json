@@ -5,12 +5,6 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "------------------------",
-      "cwd": "This is just a divider added to make things cleaner, go do some real coding why are reading this? 💀",
-      "request": "launch",
-      "type": "dart"
-    },
-    {
       "name": "base app (development)",
       "cwd": "base_app",
       "request": "launch",

@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:garage_core/enums/user_type.dart';
-import 'package:garage_core/services/enum_services.dart';
-export 'package:garage_core/enums/user_type.dart';
+import 'package:garage_client/global_services/enums/user_type.dart';
+import 'package:garage_client/global_services/services/enum_services.dart';
+export 'package:garage_client/global_services/enums/user_type.dart';
 
 class OrderRate {
   String uid;
@@ -50,11 +50,9 @@ class OrderRate {
 
   String toJson() => json.encode(toMap());
 
-  factory OrderRate.fromJson(String source) =>
-      OrderRate.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory OrderRate.fromJson(String source) => OrderRate.fromMap(json.decode(source) as Map<String, dynamic>);
 
-  static List<OrderRate> orderRateListFromMap(
-      List<Map<String, dynamic>>? orderRateData) {
+  static List<OrderRate> orderRateListFromMap(List<Map<String, dynamic>>? orderRateData) {
     if (orderRateData == null) return [];
     final orderRate = List<OrderRate>.from((orderRateData).map<OrderRate>(
       (order) => OrderRate.fromMap(order),

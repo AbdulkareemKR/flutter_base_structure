@@ -2,11 +2,11 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:garage_core/enums/currency.dart';
-import 'package:garage_core/models/transaction.dart';
-import 'package:garage_core/services/enum_services.dart';
+import 'package:garage_client/global_services/enums/currency.dart';
+import 'package:garage_client/global_services/models/transaction.dart';
+import 'package:garage_client/global_services/services/enum_services.dart';
 
-export 'package:garage_core/services/wallet_services.dart';
+export 'package:garage_client/global_services/services/wallet_services.dart';
 
 class Wallet extends ChangeNotifier {
   // default wallet id

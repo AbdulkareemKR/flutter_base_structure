@@ -6,15 +6,15 @@ import 'package:garage_client/constants/spacing_const.dart';
 import 'package:garage_client/features/home/presentation/controllers/home_screen_controller.dart';
 import 'package:garage_client/global_providers/orders_provider.dart';
 import 'package:garage_client/widgets/locale_positioned.dart';
-import 'package:garage_core/constants/constants.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/services/date_time_services.dart';
+import 'package:garage_client/global_services/constants/constants.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/services/date_time_services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:garage_client/localization/localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
-import 'package:garage_core/services/order_repo.dart';
-import 'package:garage_core/widgets/conditionary_widget/conditionary_widget.dart';
+import 'package:garage_client/global_services/services/order_repo.dart';
+import 'package:garage_client/global_services/widgets/conditionary_widget/conditionary_widget.dart';
 
 class ActiveOrderWidget extends ConsumerStatefulWidget {
   final Order order;

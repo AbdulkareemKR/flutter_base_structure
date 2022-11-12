@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garage_client/constants/colors_const.dart';
 import 'package:garage_client/constants/icons/garage_icons.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
-import 'package:garage_core/widgets/bottom_sheet/bottom_sheet_navigator.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/bottom_sheet_navigator.dart';
 
 class CustomDropDown<T> extends StatelessWidget {
   const CustomDropDown({

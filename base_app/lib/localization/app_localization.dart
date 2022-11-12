@@ -1,8 +1,8 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
 
 import 'constants.dart';
 
@@ -42,7 +42,7 @@ class AppLocalization {
       result = _localizedValues[key];
       return result;
     } catch (err) {
-      GLogger.error("Error translating $key \n Key not found");
+      log("Error translating $key \n Key not found");
       return key;
     }
   }

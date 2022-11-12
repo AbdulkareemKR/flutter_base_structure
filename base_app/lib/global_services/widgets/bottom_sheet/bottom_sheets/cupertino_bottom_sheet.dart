@@ -8,7 +8,7 @@ import 'package:flutter/cupertino.dart' show CupertinoTheme, CupertinoApp;
 import 'package:flutter/material.dart' show Colors, MaterialLocalizations, Theme, debugCheckHasMaterialLocalizations;
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:garage_core/widgets/bottom_sheet/src.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/src.dart';
 
 const double _kPreviousPageVisibleOffset = 10;
 

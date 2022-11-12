@@ -1,7 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:garage_client/widgets/loading_widget.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
 
 extension BuildAsyncValue<T> on AsyncValue<T> {
   ///
@@ -18,7 +19,7 @@ extension BuildAsyncValue<T> on AsyncValue<T> {
         data: onData,
         error: onError ??
             ((error, stackTrace) {
-              error.logException(stackTrace: stackTrace);
+              log('$error');
               return const SizedBox.shrink();
             }),
         loading: onLoading ??

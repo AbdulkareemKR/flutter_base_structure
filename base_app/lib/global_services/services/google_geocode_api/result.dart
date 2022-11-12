@@ -1,4 +1,4 @@
-import 'package:garage_core/services/google_geocode_api/address_component.dart';
+import 'package:garage_client/global_services/services/google_geocode_api/address_component.dart';
 
 class Result {
   List<AddressComponent>? addressComponents;
@@ -16,7 +16,9 @@ class Result {
   factory Result.fromMap(Map<String, dynamic> map) {
     return Result(
       addressComponents: map['address_components'] != null
-          ? List.from((map['address_components'])).map((addressComponents) => AddressComponent.fromMap(addressComponents)).toList()
+          ? List.from((map['address_components']))
+              .map((addressComponents) => AddressComponent.fromMap(addressComponents))
+              .toList()
           : null,
     );
   }

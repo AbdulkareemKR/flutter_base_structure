@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_core/models/transaction.dart';
-import 'package:garage_core/models/wallet.dart';
-import 'package:garage_core/services/date_time_repo.dart';
+import 'package:garage_client/global_services/models/transaction.dart';
+import 'package:garage_client/global_services/models/wallet.dart';
+import 'package:garage_client/global_services/services/date_time_repo.dart';
 
 final walletControllerProvider = StateProvider<WalletController>((ref) => WalletController(ref: ref));
 

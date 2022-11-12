@@ -1,7 +1,8 @@
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/services/firestore_services.dart';
+import 'dart:developer';
+
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/services/firestore_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
 
 @Deprecated('Use OrderRepo')
 Stream<List<Order>> getOrdersStream(String userId) {
@@ -12,7 +13,8 @@ Stream<List<Order>> getOrdersStream(String userId) {
         .map((list) => list.docs.map((doc) => Order.fromMap(doc.data())).toList());
     return ordersStream;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return const Stream.empty();
   }
 }
@@ -33,7 +35,8 @@ Stream<Order?> getActiveOrderStream(String uid) {
     });
     return snapshot;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return const Stream.empty();
   }
 }
@@ -41,12 +44,11 @@ Stream<Order?> getActiveOrderStream(String uid) {
 void postOrderRating(String orderId, OrderRate orderRate) {
   FirestoreServices.ordersCollection.doc(orderId).update({
     "rating": FieldValue.arrayUnion([orderRate.toMap()]),
-  }).then((value) => GLogger.debug("rating added successfully!"),
-      onError: (e) => GLogger.error("Error adding rating $e"));
+  }).then((value) => log("rating added successfully!"), onError: (e) => log("Error adding rating $e"));
 }
 
 void hideOrder(String orderId) {
   FirestoreServices.ordersCollection.doc(orderId).update(
     {'isVisible': false},
-  ).then((value) => GLogger.debug("order has been hided"), onError: (e) => GLogger.error("Error hiding order $e"));
+  ).then((value) => log("order has been hided"), onError: (e) => log("Error hiding order $e"));
 }

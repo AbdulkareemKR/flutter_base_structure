@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+
 import 'package:http/http.dart' as http;
-import 'package:garage_core/services/google_direction_services/polyline_result.dart';
+import 'package:garage_client/global_services/services/google_direction_services/polyline_result.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class DirectionApi {
@@ -54,10 +54,10 @@ class DirectionApi {
           points = decodeEncodedPolyline(parsedJson["routes"][0]["overview_polyline"]["points"]);
           result.distance = parsedJson["routes"][0]["legs"][0]["distance"]["text"];
           result.duration = parsedJson["routes"][0]["legs"][0]["duration"]["text"];
-          GLogger.debug(result.distance);
-          GLogger.debug(result.duration);
+          log(result.distance);
+          log(result.duration);
         } else {
-          GLogger.error("error in google direction api");
+          log("error in google direction api");
           result.errorMessage = parsedJson["errorMessage"];
         }
       }
@@ -85,7 +85,7 @@ class DirectionApi {
       result.directionPolylines = Set<Polyline>.of(polylines.values);
       return result;
     } catch (e) {
-      GLogger.error(e.toString());
+      log(e.toString());
 
       return null;
     }

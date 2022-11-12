@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_core/models/city.dart';
-import 'package:garage_core/models/translatable.dart';
-import 'package:garage_core/services/firestore_repo.dart';
-import 'package:garage_core/services/validator.dart';
+import 'package:garage_client/global_services/models/city.dart';
+import 'package:garage_client/global_services/models/translatable.dart';
+import 'package:garage_client/global_services/services/firestore_repo.dart';
+import 'package:garage_client/global_services/services/validator.dart';
 
 final citiesRepoProvider = Provider<CitiesRepo>((ref) {
   return CitiesRepo(ref.watch(firestoreRepoProvider));

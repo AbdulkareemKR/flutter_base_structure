@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:garage_core/widgets/bottom_sheet/src.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/src.dart';
 
 class AnimatedMaterialWithModalsPageRoute<T> extends MaterialPageRoute<T> {
   /// Construct a MaterialPageRoute whose contents are defined by [builder].

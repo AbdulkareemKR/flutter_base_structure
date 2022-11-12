@@ -1,10 +1,11 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_core/models/car_owner.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/services/firestore_repo.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'package:garage_client/global_services/models/car_owner.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/services/firestore_repo.dart';
 
 final carOwnerRepoProvider = Provider<CarOwnerRepo>(
   (ref) => CarOwnerRepo(ref.watch(firestoreRepoProvider)),
@@ -38,16 +39,18 @@ class CarOwnerRepo {
         } catch (e) {
           // Ensure that the user is logged out when any error is encountered
 
-          GLogger.warning("Logging out the current user with $uid because of an error in their data");
+          log("Logging out the current user with $uid because of an error in their data");
           FirebaseAuth.instance.signOut().ignore();
 
-          e.logException();
+          log('$e');
+          ;
           throw Exception(e);
         }
       });
       return user;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       throw Exception(e);
     }
   }
@@ -58,7 +61,8 @@ class CarOwnerRepo {
       await firestoreRepo.carOwnersCollection.doc(uid).set(carOwner.toMap(), SetOptions(merge: true));
       return carOwner;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return null;
     }
   }
@@ -68,7 +72,8 @@ class CarOwnerRepo {
       await firestoreRepo.carOwnersCollection.doc(uid).update({'defaultLocation': location.toMap()});
       return true;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return false;
     }
   }
@@ -78,7 +83,8 @@ class CarOwnerRepo {
       await firestoreRepo.carOwnersCollection.doc(uid).update({'name': name});
       return true;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return false;
     }
   }

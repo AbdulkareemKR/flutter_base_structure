@@ -9,16 +9,16 @@ import 'package:garage_client/features/loaction/domain/models/location_state.dar
 import 'package:garage_client/global_providers/car_owner_provider.dart';
 import 'package:garage_client/localization/extensions.dart';
 import 'package:garage_client/widgets/animated_dialog.dart';
-import 'package:garage_core/models/car_owner.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/services/car_owner_repo.dart';
-import 'package:garage_core/services/cloud_functions_services.dart';
-import 'package:garage_core/services/location_services.dart';
-import 'package:garage_core/services/random_generator.dart';
-import 'package:garage_core/services/validator.dart';
+import 'package:garage_client/global_services/models/car_owner.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/services/car_owner_repo.dart';
+import 'package:garage_client/global_services/services/cloud_functions_services.dart';
+import 'package:garage_client/global_services/services/location_services.dart';
+import 'package:garage_client/global_services/services/random_generator.dart';
+import 'package:garage_client/global_services/services/validator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:garage_core/services/google_geocode_api/address_information.dart';
-import 'package:garage_core/services/google_geocode_api/google_geocode_services.dart';
+import 'package:garage_client/global_services/services/google_geocode_api/address_information.dart';
+import 'package:garage_client/global_services/services/google_geocode_api/google_geocode_services.dart';
 
 final locationStateProvider = StateNotifierProvider<LocationNotifier, LocationState>((ref) {
   return LocationNotifier(LocationState(isBeingEditedLocation: false, viewMode: LocationViewMode.view), ref: ref);

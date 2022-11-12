@@ -2,17 +2,17 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:garage_core/enums/currency.dart';
-import 'package:garage_core/enums/payment_method.dart';
-import 'package:garage_core/enums/payment_status.dart';
-import 'package:garage_core/enums/transaction_type.dart';
-import 'package:garage_core/models/flutter_timestamp.dart';
-import 'package:garage_core/services/enum_services.dart';
+import 'package:garage_client/global_services/enums/currency.dart';
+import 'package:garage_client/global_services/enums/payment_method.dart';
+import 'package:garage_client/global_services/enums/payment_status.dart';
+import 'package:garage_client/global_services/enums/transaction_type.dart';
+import 'package:garage_client/global_services/models/flutter_timestamp.dart';
+import 'package:garage_client/global_services/services/enum_services.dart';
 
-export 'package:garage_core/enums/payment_method.dart';
-export 'package:garage_core/enums/payment_status.dart';
-export 'package:garage_core/enums/transaction_type.dart';
-export 'package:garage_core/enums/currency.dart';
+export 'package:garage_client/global_services/enums/payment_method.dart';
+export 'package:garage_client/global_services/enums/payment_status.dart';
+export 'package:garage_client/global_services/enums/transaction_type.dart';
+export 'package:garage_client/global_services/enums/currency.dart';
 
 class Transaction {
   // Basic transaction info

@@ -9,12 +9,12 @@ import 'package:garage_client/global_providers/wallet_provider.dart';
 import 'package:garage_client/localization/extensions.dart';
 import 'package:garage_client/utils/general_extensions.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
-import 'package:garage_core/models/transaction.dart';
-import 'package:garage_core/models/user_car.dart';
-import 'package:garage_core/widgets/bottom_sheet/utils/sheet.dart';
-import 'package:garage_core/widgets/conditionary_widget/conditionary_widget.dart';
-import 'package:garage_core/widgets/images/svg_image.dart';
-import 'package:garage_core/widgets/price_text.dart';
+import 'package:garage_client/global_services/models/transaction.dart';
+import 'package:garage_client/global_services/models/user_car.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/utils/sheet.dart';
+import 'package:garage_client/global_services/widgets/conditionary_widget/conditionary_widget.dart';
+import 'package:garage_client/global_services/widgets/images/svg_image.dart';
+import 'package:garage_client/global_services/widgets/price_text.dart';
 
 class WalletScreen extends ConsumerStatefulWidget {
   const WalletScreen({Key? key, this.userCar}) : super(key: key);

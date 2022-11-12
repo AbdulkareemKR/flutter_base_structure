@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:garage_core/enums/payment_method.dart';
-import 'package:garage_core/models/service.dart';
-import 'package:garage_core/models/timeslot.dart';
+import 'package:garage_client/global_services/enums/payment_method.dart';
+import 'package:garage_client/global_services/models/service.dart';
+import 'package:garage_client/global_services/models/timeslot.dart';
 
 part 'order_form_data.freezed.dart';
 part 'order_form_data.g.dart';

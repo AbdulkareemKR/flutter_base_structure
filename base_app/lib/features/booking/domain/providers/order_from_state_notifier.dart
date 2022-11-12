@@ -8,24 +8,22 @@ import 'package:garage_client/features/booking/domain/providers/sub_services_pro
 import 'package:garage_client/features/booking/domain/providers/timelosts_future_provider.dart';
 import 'package:garage_client/features/booking/domain/providers/timeslots_provider.dart';
 import 'package:garage_client/features/booking/presentation/screens/booking_screen_form.dart';
-import 'package:garage_client/features/payment/presentation/controllers/payment_state_notifier.dart';
 import 'package:garage_client/global_providers/car_owner_provider.dart';
 import 'package:garage_client/global_providers/payment_methods_proivder.dart';
 import 'package:garage_client/widgets/animated_dialog.dart';
-import 'package:garage_core/models/async_response/async_response.dart';
-import 'package:garage_core/models/cloud_function_response.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/models/service.dart';
-import 'package:garage_core/models/timeslot.dart';
-import 'package:garage_core/models/transaction.dart';
-import 'package:garage_core/services/date_time_repo.dart';
-import 'package:garage_core/services/services_repo.dart';
-import 'package:garage_core/services/services_services.dart';
-import 'package:garage_core/services/timeslot_repo.dart';
-import 'package:garage_core/services/timeslots_services.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'package:garage_client/global_services/models/async_response/async_response.dart';
+import 'package:garage_client/global_services/models/cloud_function_response.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/models/service.dart';
+import 'package:garage_client/global_services/models/timeslot.dart';
+import 'package:garage_client/global_services/models/transaction.dart';
+import 'package:garage_client/global_services/services/date_time_repo.dart';
+import 'package:garage_client/global_services/services/services_repo.dart';
+import 'package:garage_client/global_services/services/services_services.dart';
+import 'package:garage_client/global_services/services/timeslot_repo.dart';
+import 'package:garage_client/global_services/services/timeslots_services.dart';
 import 'package:garage_client/localization/extensions.dart';
-import 'package:garage_core/models/locale_response/locale_response.dart';
+import 'package:garage_client/global_services/models/locale_response/locale_response.dart';
 
 final orderFormProvider =
     StateNotifierProvider.family.autoDispose<OrderFormNotifier, AsyncValue<OrderFormData>, String>((ref, serviceId) {
@@ -88,12 +86,12 @@ class OrderFormNotifier extends StateNotifier<AsyncValue<OrderFormData>> {
                 ? ref.read(dateTimeRepo).getDayNameAndNumber(timeslot.dateFrom.toDate(), App.localeCode)
                 : null));
       } catch (error) {
-        error.logException();
+        log('$error');
 
         state = AsyncError(error, StackTrace.current);
       }
     }), error: ((error, stackTrace) {
-      error.logException();
+      log('$error');
 
       state = AsyncError(error, stackTrace);
     }), loading: () {
@@ -217,7 +215,7 @@ class OrderFormNotifier extends StateNotifier<AsyncValue<OrderFormData>> {
         );
       }
     } catch (e) {
-      GLogger.error(e.toString());
+      log(e.toString());
       GarageDialog.show(context: context, style: DialogStyle.error, message: 'orders.orderInitError'.translate());
     }
   }
@@ -253,9 +251,7 @@ class OrderFormNotifier extends StateNotifier<AsyncValue<OrderFormData>> {
 
         ref.read(initOrderProvider.notifier).state = initiatedOrder;
 
-        final didInit = await ref.read(paymentStateProvider.notifier).prepareHyperpay();
-
-        return didInit;
+        return null;
       } else {
         return LocaleResponse(success: false, message: "orders.timeSlotError".translate());
       }

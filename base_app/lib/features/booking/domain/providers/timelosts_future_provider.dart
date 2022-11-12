@@ -1,13 +1,14 @@
+import 'dart:developer';
+
 import 'package:garage_client/app.dart';
 import 'package:garage_client/features/booking/domain/models/timeslot_group.dart';
 import 'package:garage_client/features/booking/domain/providers/timeslots_provider.dart';
-import 'package:garage_core/models/timeslot.dart';
-import 'package:garage_core/models/user_car.dart';
-import 'package:garage_core/services/cars_repo.dart';
-import 'package:garage_core/services/date_time_repo.dart';
-import 'package:garage_core/services/timeslot_repo.dart';
-import 'package:garage_core/services/timeslots_services.dart';
-import 'package:garage_core/utilis/logger/extensions.dart';
+import 'package:garage_client/global_services/models/timeslot.dart';
+import 'package:garage_client/global_services/models/user_car.dart';
+import 'package:garage_client/global_services/services/cars_repo.dart';
+import 'package:garage_client/global_services/services/date_time_repo.dart';
+import 'package:garage_client/global_services/services/timeslot_repo.dart';
+import 'package:garage_client/global_services/services/timeslots_services.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'timelosts_future_provider.g.dart';
 
@@ -75,7 +76,8 @@ Future<Map<String, List<TimeslotGroup>>> getTimeslots(GetTimeslotsRef ref, Strin
 
     return timeslotGroupsMap;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
 
     // In case the serviceId is null
     //

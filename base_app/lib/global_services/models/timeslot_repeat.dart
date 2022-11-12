@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:collection/collection.dart';
-import 'package:garage_core/enums/days.dart';
-import 'package:garage_core/enums/repeat_every.dart';
-import 'package:garage_core/services/enum_services.dart';
+import 'package:garage_client/global_services/enums/days.dart';
+import 'package:garage_client/global_services/enums/repeat_every.dart';
+import 'package:garage_client/global_services/services/enum_services.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 

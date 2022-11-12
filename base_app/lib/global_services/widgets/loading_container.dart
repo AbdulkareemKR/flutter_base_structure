@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:garage_core/constants/constants.dart';
+import 'package:garage_client/global_services/constants/constants.dart';
 import 'package:shimmer/shimmer.dart';
 
 class LoadingContainer extends StatelessWidget {

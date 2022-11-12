@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:garage_client/constants/constants.dart';
 import 'package:garage_client/constants/spacing_const.dart';
-import 'package:garage_core/constants/constants.dart';
+import 'package:garage_client/global_services/constants/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:garage_client/utils/theme/extensions.dart';

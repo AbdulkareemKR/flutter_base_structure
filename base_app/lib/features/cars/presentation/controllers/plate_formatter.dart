@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:garage_core/models/plate.dart';
+import 'package:garage_client/global_services/models/plate.dart';
 
 class PlateFormatter extends TextInputFormatter {
   @override

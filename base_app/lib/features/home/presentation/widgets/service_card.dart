@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,9 +10,9 @@ import 'package:garage_client/features/home/domain/providers/car_min_price_provi
 import 'package:garage_client/localization/localization.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
 import 'package:garage_client/widgets/gard_gesture_detector.dart';
-import 'package:garage_core/models/service.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
-import 'package:garage_core/widgets/images/svg_image.dart';
+import 'package:garage_client/global_services/models/service.dart';
+
+import 'package:garage_client/global_services/widgets/images/svg_image.dart';
 
 class ServiceCard extends ConsumerWidget {
   const ServiceCard({
@@ -67,7 +69,7 @@ class ServiceCard extends ConsumerWidget {
                         style: context.textThemes.displaySmall?.regular.copyWith(color: ColorsConst.white),
                         textAlign: TextAlign.start);
                   }, error: ((error, stackTrace) {
-                    error.logException(stackTrace: stackTrace);
+                    log('$error');
 
                     return const SizedBox.shrink();
                   }), loading: () {

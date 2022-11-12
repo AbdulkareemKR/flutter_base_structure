@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:garage_core/models/color.dart';
-import 'package:garage_core/models/plate.dart';
-import 'package:garage_core/services/car_services.dart';
+import 'package:garage_client/global_services/models/color.dart';
+import 'package:garage_client/global_services/models/plate.dart';
+import 'package:garage_client/global_services/services/car_services.dart';
 
 class UserCar {
   final String? id;

@@ -2,9 +2,8 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/services/firestore_repo.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/services/firestore_repo.dart';
 
 final orderRepoProvider = Provider<OrderRepo>(((ref) => OrderRepo(firestoreRepo: ref.watch(firestoreRepoProvider))));
 
@@ -32,7 +31,8 @@ class OrderRepo {
           return [];
         }
       } catch (e) {
-        e.logException();
+        log('$e');
+        ;
         return [];
       }
     }
@@ -49,11 +49,12 @@ class OrderRepo {
           final orders = orderDocs.map<Order>((orderDoc) => Order.fromMap(orderDoc.data()));
           return orders.toList();
         } else {
-          GLogger.debug('No orders for this technician 🛑');
+          log('No orders for this technician 🛑');
           return [];
         }
       } catch (e) {
-        e.logException();
+        log('$e');
+        ;
         return [];
       }
     }
@@ -172,7 +173,8 @@ class OrderRepo {
       });
       return snapshot;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return const Stream.empty();
     }
   }
@@ -185,7 +187,8 @@ class OrderRepo {
           .map((list) => list.docs.map((doc) => Order.fromMap(doc.data())).toList());
       return ordersStream;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return const Stream.empty();
     }
   }
@@ -199,7 +202,8 @@ class OrderRepo {
           firestoreRepo.ordersCollection.doc(orderId).snapshots().map((order) => Order.fromMap(order.data()!));
       return streamedOrder;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return const Stream.empty();
     }
   }
@@ -207,14 +211,13 @@ class OrderRepo {
   void postOrderRating({required String orderId, required OrderRate orderRate}) {
     firestoreRepo.ordersCollection.doc(orderId).update({
       "rating": FieldValue.arrayUnion([orderRate.toMap()]),
-    }).then((value) => GLogger.debug("rating added successfully!"),
-        onError: (e) => GLogger.error("Error adding rating $e"));
+    }).then((value) => log("rating added successfully!"), onError: (e) => log("Error adding rating $e"));
   }
 
   void hideOrder(String orderId) {
     firestoreRepo.ordersCollection.doc(orderId).update(
       {'isVisible': false},
-    ).then((value) => GLogger.debug("order has been hided"), onError: (e) => GLogger.error("Error hiding order $e"));
+    ).then((value) => log("order has been hided"), onError: (e) => log("Error hiding order $e"));
   }
 
   Stream<List<Order>> getTechnicianOrdersStream(String? technicianId) {
@@ -228,7 +231,8 @@ class OrderRepo {
             .map((list) => list.docs.map((doc) => Order.fromMap(doc.data())).toList());
         return ordersStream;
       } catch (e) {
-        e.logException();
+        log('$e');
+        ;
         return const Stream.empty();
       }
     }

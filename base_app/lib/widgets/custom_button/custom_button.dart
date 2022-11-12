@@ -5,7 +5,7 @@ import 'package:garage_client/constants/colors_const.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
 import 'package:garage_client/widgets/custom_button/enums/button_size.dart';
 import 'package:garage_client/widgets/custom_button/enums/button_style.dart';
-import 'package:garage_core/widgets/conditionary_widget/conditionary_widget.dart';
+import 'package:garage_client/global_services/widgets/conditionary_widget/conditionary_widget.dart';
 
 class CustomButton extends StatefulWidget {
   const CustomButton({

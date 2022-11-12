@@ -1,10 +1,12 @@
-import 'package:garage_core/models/serivce_provider.dart';
-import 'package:garage_core/models/service.dart';
-import 'package:garage_core/models/transaction.dart';
-import 'package:garage_core/models/transaction_constant.dart';
-import 'package:garage_core/services/car_services.dart';
-import 'package:garage_core/services/firestore_services.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'dart:developer';
+
+import 'package:garage_client/global_services/models/serivce_provider.dart';
+import 'package:garage_client/global_services/models/service.dart';
+import 'package:garage_client/global_services/models/transaction.dart';
+import 'package:garage_client/global_services/models/transaction_constant.dart';
+import 'package:garage_client/global_services/services/car_services.dart';
+import 'package:garage_client/global_services/services/firestore_services.dart';
+
 import 'package:collection/collection.dart';
 
 Future<List<Service>> getRootServices() async {
@@ -18,11 +20,12 @@ Future<List<Service>> getRootServices() async {
 
       return servicesList;
     } else {
-      GLogger.warning('no services');
+      log('no services');
       return [];
     }
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return [];
   }
 }
@@ -31,7 +34,8 @@ Future<Transaction> getTransaction({required String id}) async {
   try {
     return Transaction.fromMap((await FirestoreServices.transactionCollection.doc(id).get()).data()!);
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     throw Exception("Couldn't get transaction with id $id");
   }
 }
@@ -54,11 +58,13 @@ Future<List<Service>> getServicesFromParent(String parentId, String carId) async
 
         return subServicesList.toList();
       } catch (e) {
-        e.logException();
+        log('$e');
+        ;
       }
     }
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
   }
 
   return [];
@@ -89,19 +95,20 @@ Future<num> getServicePriceForServiceProvider(String serviceId, String servicePr
           final transactionConstant = TransactionConstant.fromMap(vatData);
           return service == null ? 0.0 : transactionConstant.getPriceWithVat(service.price);
         } else {
-          GLogger.warning('the requested timeslot was not found');
+          log('the requested timeslot was not found');
           return 0.0;
         }
       } else {
-        GLogger.warning('the requested service was not found');
+        log('the requested service was not found');
         return 0.0;
       }
     } else {
       throw Exception("The carId should not be null!");
     }
   } catch (e) {
-    e.logException();
-    GLogger.warning('the requested service was not found');
+    log('$e');
+    ;
+    log('the requested service was not found');
     return 0.0;
   }
 }

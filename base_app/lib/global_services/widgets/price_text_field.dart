@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:garage_core/enums/currency.dart';
-import 'package:garage_core/widgets/price_text.dart';
+import 'package:garage_client/global_services/enums/currency.dart';
+import 'package:garage_client/global_services/widgets/price_text.dart';
 import 'package:sizer/sizer.dart';
 
 class PriceTextField extends StatelessWidget {

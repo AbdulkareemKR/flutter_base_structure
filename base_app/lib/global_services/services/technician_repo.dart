@@ -1,9 +1,10 @@
-import 'package:garage_core/models/tech_account.dart';
-import 'package:garage_core/models/technician.dart';
-import 'package:garage_core/services/cloud_functions_services.dart';
-import 'package:garage_core/services/firestore_repo.dart';
+import 'dart:developer';
+
+import 'package:garage_client/global_services/models/tech_account.dart';
+import 'package:garage_client/global_services/models/technician.dart';
+import 'package:garage_client/global_services/services/cloud_functions_services.dart';
+import 'package:garage_client/global_services/services/firestore_repo.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
 
 final technicianRepoProvider =
     Provider<TechnicianRepo>(((ref) => TechnicianRepo(firestoreRepo: ref.watch(firestoreRepoProvider))));
@@ -28,7 +29,8 @@ class TechnicianRepo {
         return null;
       }
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
     }
     return null;
   }
@@ -41,7 +43,8 @@ class TechnicianRepo {
           .map((list) => list.docs.map((doc) => Technician.fromMap(doc.data())).toList());
       return technicianStream;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return const Stream.empty();
     }
   }
@@ -69,7 +72,8 @@ class TechnicianRepo {
         return false;
       }
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return false;
     }
   }
@@ -81,7 +85,8 @@ class TechnicianRepo {
       await docRef.update(technicianMap);
       return true;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return false;
     }
   }
@@ -96,7 +101,8 @@ class TechnicianRepo {
         return null;
       }
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return null;
     }
   }
@@ -109,7 +115,8 @@ class TechnicianRepo {
           .map((doc) => Technician.fromMap(doc.data()!));
       return technicianStream;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return const Stream.empty();
     }
   }

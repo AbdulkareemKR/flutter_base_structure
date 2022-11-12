@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:garage_core/widgets/custom_button.dart';
+import 'package:garage_client/global_services/widgets/custom_button.dart';
 
 class CustomDialog extends StatelessWidget {
   const CustomDialog({

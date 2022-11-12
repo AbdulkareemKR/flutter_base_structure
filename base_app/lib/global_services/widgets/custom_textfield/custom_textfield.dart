@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:garage_core/constants/constants.dart';
-import 'package:garage_core/services/validator.dart';
-import 'package:garage_core/widgets/custom_textfield/controller.dart';
-import 'package:garage_core/widgets/custom_textfield/textfield_types.dart';
+import 'package:garage_client/global_services/constants/constants.dart';
+import 'package:garage_client/global_services/services/validator.dart';
+import 'package:garage_client/global_services/widgets/custom_textfield/controller.dart';
+import 'package:garage_client/global_services/widgets/custom_textfield/textfield_types.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({

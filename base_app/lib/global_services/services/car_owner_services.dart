@@ -1,7 +1,8 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:garage_core/models/car_owner.dart';
-import 'package:garage_core/services/firestore_services.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'package:garage_client/global_services/models/car_owner.dart';
+import 'package:garage_client/global_services/services/firestore_services.dart';
 
 Future<CarOwner?> getCarOwnerFromId(String uid) async {
   final user = await FirebaseFirestore.instance.collection('CarOwner').where('uid', isEqualTo: uid).get();
@@ -19,7 +20,8 @@ Future<CarOwner?> createCarOwner(String uid, String name, String phoneNumber) as
     await FirestoreServices.carOwnersCollection.doc(uid).set(carOwner.toMap());
     return carOwner;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return null;
   }
 }

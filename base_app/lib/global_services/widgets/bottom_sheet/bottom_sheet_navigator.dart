@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:garage_core/services/easy_navigator.dart';
+import 'package:garage_client/global_services/services/easy_navigator.dart';
 
 @Deprecated("Use [EasyNavigator.openPage] instead")
 Future<T?> showCustomBottomSheet<T>({

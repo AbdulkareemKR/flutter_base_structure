@@ -25,12 +25,12 @@ import 'package:garage_client/widgets/custom_button/enums/button_size.dart';
 import 'package:garage_client/widgets/custom_button/enums/button_style.dart';
 import 'package:garage_client/widgets/gard_gesture_detector.dart';
 import 'package:garage_client/widgets/selected_indecator.dart';
-import 'package:garage_core/enums/currency.dart';
-import 'package:garage_core/services/validator.dart';
-import 'package:garage_core/widgets/bottom_sheet/bottom_sheet_navigator.dart';
-import 'package:garage_core/widgets/conditionary_widget/conditionary_widget.dart';
-import 'package:garage_core/widgets/loading_container.dart';
-import 'package:garage_core/widgets/price_text.dart';
+import 'package:garage_client/global_services/enums/currency.dart';
+import 'package:garage_client/global_services/services/validator.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/bottom_sheet_navigator.dart';
+import 'package:garage_client/global_services/widgets/conditionary_widget/conditionary_widget.dart';
+import 'package:garage_client/global_services/widgets/loading_container.dart';
+import 'package:garage_client/global_services/widgets/price_text.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

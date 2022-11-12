@@ -2,24 +2,24 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:collection/collection.dart';
-import 'package:garage_core/enums/order_status.dart';
-import 'package:garage_core/models/coupon.dart';
-import 'package:garage_core/models/user_location.dart';
-import 'package:garage_core/models/order_coupon.dart';
-import 'package:garage_core/models/order_dates.dart';
-import 'package:garage_core/models/order_rate.dart';
-import 'package:garage_core/models/service.dart';
-import 'package:garage_core/models/timeslot.dart';
-import 'package:garage_core/models/transaction.dart';
-import 'package:garage_core/models/user_car.dart';
-import 'package:garage_core/services/enum_services.dart';
+import 'package:garage_client/global_services/enums/order_status.dart';
+import 'package:garage_client/global_services/models/coupon.dart';
+import 'package:garage_client/global_services/models/user_location.dart';
+import 'package:garage_client/global_services/models/order_coupon.dart';
+import 'package:garage_client/global_services/models/order_dates.dart';
+import 'package:garage_client/global_services/models/order_rate.dart';
+import 'package:garage_client/global_services/models/service.dart';
+import 'package:garage_client/global_services/models/timeslot.dart';
+import 'package:garage_client/global_services/models/transaction.dart';
+import 'package:garage_client/global_services/models/user_car.dart';
+import 'package:garage_client/global_services/services/enum_services.dart';
 
-export 'package:garage_core/enums/order_status.dart';
-export 'package:garage_core/models/user_location.dart';
-export 'package:garage_core/models/order_coupon.dart';
-export 'package:garage_core/models/order_dates.dart';
-export 'package:garage_core/models/order_rate.dart';
-export 'package:garage_core/models/tech_live_location.dart';
+export 'package:garage_client/global_services/enums/order_status.dart';
+export 'package:garage_client/global_services/models/user_location.dart';
+export 'package:garage_client/global_services/models/order_coupon.dart';
+export 'package:garage_client/global_services/models/order_dates.dart';
+export 'package:garage_client/global_services/models/order_rate.dart';
+export 'package:garage_client/global_services/models/tech_live_location.dart';
 
 class Order {
   String? id;

@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
-import 'package:garage_core/enums/currency.dart';
-import 'package:garage_core/models/coupon_usage.dart';
-import 'package:garage_core/models/flutter_timestamp.dart';
-import 'package:garage_core/services/enum_services.dart';
+import 'package:garage_client/global_services/enums/currency.dart';
+import 'package:garage_client/global_services/models/coupon_usage.dart';
+import 'package:garage_client/global_services/models/flutter_timestamp.dart';
+import 'package:garage_client/global_services/services/enum_services.dart';
 
 class Coupon {
   // Basic coupon's info.

@@ -1,4 +1,4 @@
-import 'package:garage_core/models/exportable.dart';
+import 'package:garage_client/global_services/models/exportable.dart';
 
 /// Get a list of maps for the class that implement  [Exportable]
 List<Map<String, dynamic>> toListOfMap(List<Exportable> exportableList) {

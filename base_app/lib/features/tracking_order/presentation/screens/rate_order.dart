@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:garage_client/features/tracking_order/presentation/screens/order_completed.dart';
-import 'package:garage_core/models/order.dart';
+import 'package:garage_client/global_services/models/order.dart';
 
 class RateOrder extends StatelessWidget {
   final Order order;

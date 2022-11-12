@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garage_client/constants/colors_const.dart';
 import 'package:garage_client/localization/localization.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
-import 'package:garage_core/models/color.dart';
+import 'package:garage_client/global_services/models/color.dart';
 
 class ColorWidget extends StatelessWidget {
   const ColorWidget({

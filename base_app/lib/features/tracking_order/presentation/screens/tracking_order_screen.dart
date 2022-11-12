@@ -8,9 +8,9 @@ import 'package:garage_client/widgets/custom_button/enums/button_style.dart';
 import 'package:garage_client/localization/localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garage_client/localization/extensions.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/services/order_repo.dart';
-import 'package:garage_core/widgets/conditionary_widget/conditionary_widget.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/services/order_repo.dart';
+import 'package:garage_client/global_services/widgets/conditionary_widget/conditionary_widget.dart';
 import 'package:garage_client/utils/general_extensions.dart';
 
 class TrackingOrderScreen extends ConsumerStatefulWidget {

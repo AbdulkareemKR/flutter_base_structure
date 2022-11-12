@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:garage_client/global_providers/car_owner_provider.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/services/order_repo.dart';
-import 'package:garage_core/services/service_providers_repo.dart';
-import 'package:garage_core/models/serivce_provider.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/services/order_repo.dart';
+import 'package:garage_client/global_services/services/service_providers_repo.dart';
+import 'package:garage_client/global_services/models/serivce_provider.dart';
 
 final activeOrderStream = StreamProvider<Order?>(
   (ref) {

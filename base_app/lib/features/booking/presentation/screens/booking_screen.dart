@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,13 +22,13 @@ import 'package:garage_client/widgets/animated_dialog.dart';
 import 'package:garage_client/widgets/custom_button/custom_button.dart';
 import 'package:garage_client/widgets/custom_button/enums/button_size.dart';
 import 'package:garage_client/widgets/custom_button/enums/button_style.dart';
-import 'package:garage_core/models/service.dart';
-import 'package:garage_core/models/timeslot.dart';
-import 'package:garage_core/services/date_time_repo.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
-import 'package:garage_core/widgets/bottom_sheet/bottom_sheet_navigator.dart';
-import 'package:garage_core/widgets/conditionary_widget/conditionary_widget.dart';
-import 'package:garage_core/widgets/loading_container.dart';
+import 'package:garage_client/global_services/models/service.dart';
+import 'package:garage_client/global_services/models/timeslot.dart';
+import 'package:garage_client/global_services/services/date_time_repo.dart';
+
+import 'package:garage_client/global_services/widgets/bottom_sheet/bottom_sheet_navigator.dart';
+import 'package:garage_client/global_services/widgets/conditionary_widget/conditionary_widget.dart';
+import 'package:garage_client/global_services/widgets/loading_container.dart';
 
 class BookingScreen extends ConsumerStatefulWidget {
   const BookingScreen({Key? key, required this.service}) : super(key: key);
@@ -77,7 +79,7 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                         onChange: ref.read(orderFormProvider(widget.service.id).notifier).changeSelectedService,
                       );
                     }, error: (error, stackTrace) {
-                      error.logException();
+                      log('$error');
                       return const SizedBox.shrink();
                     }, loading: () {
                       return LoadingContainer(
@@ -104,7 +106,7 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                         onChange: ref.read(orderFormProvider(widget.service.id).notifier).changeSelectedOtherService,
                       );
                     }, error: (error, stackTrace) {
-                      error.logException();
+                      log('$error');
                       return const SizedBox.shrink();
                     }, loading: () {
                       return LoadingContainer(
@@ -254,7 +256,7 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                   );
                 },
                 error: (error, stackTrace) {
-                  error.logException();
+                  log('$error');
                   return const SizedBox.shrink();
                 },
                 loading: () {
@@ -331,7 +333,7 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                   );
                 },
                 error: (error, stackTrace) {
-                  error.logException();
+                  log('$error');
                   return const SizedBox.shrink();
                 },
                 loading: () {
@@ -346,7 +348,7 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
         ],
       );
     }), onError: (error, stackTrace) {
-      error.logException();
+      log('$error');
       return const NoTimeslotWidget();
     });
   }

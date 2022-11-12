@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garage_client/constants/spacing_const.dart';
 import 'package:garage_client/features/tracking_order/presentation/widgets/tech_live_direction_map.dart';
-import 'package:garage_core/constants/constants.dart';
+import 'package:garage_client/global_services/constants/constants.dart';
 import 'package:garage_client/localization/localization.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
 

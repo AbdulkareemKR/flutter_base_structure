@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_core/models/bank.dart';
-import 'package:garage_core/services/firestore_repo.dart';
+import 'package:garage_client/global_services/models/bank.dart';
+import 'package:garage_client/global_services/services/firestore_repo.dart';
 
 final banksRepoProvider = Provider<BanksRepo>(
   (ref) => BanksRepo(firestoreRepo: ref.watch(firestoreRepoProvider)),

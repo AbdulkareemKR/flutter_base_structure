@@ -1,8 +1,8 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:amplitude_flutter/amplitude.dart';
-import 'package:garage_core/enums/amplitude_status.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'package:garage_client/global_services/enums/amplitude_status.dart';
 
 class AmplitudeServices {
   //This is the default, it will be change when we init the services.
@@ -12,18 +12,18 @@ class AmplitudeServices {
   /// This method used to init Amplitude services
   static Future<void> init(String apiKey) async {
     if (Platform.isWindows) {
-      GLogger.warning('Amplitude is not supported on windows');
+      log('Amplitude is not supported on windows');
       return;
     }
     AmplitudeServices._apiKey = apiKey;
     if (apiKey.isEmpty) {
       //This indicates that there is no api key passed
       status = AmplitudeStatus.error;
-      GLogger.error('(Amplitude/init) No API key passed ⚠️');
+      log('(Amplitude/init) No API key passed ⚠️');
     } else {
       await Amplitude.getInstance().init(apiKey);
       await setUserId('testUser');
-      GLogger.info("Amplitude status: initialized ✅");
+      log("Amplitude status: initialized ✅");
 
       // The services are initialized successfully
       status = AmplitudeStatus.initialized;
@@ -35,7 +35,7 @@ class AmplitudeServices {
     if (status == AmplitudeStatus.error) {
       // In case of an error in the init.
       // This should be changed from print statement to logger.
-      GLogger.warning('(Amplitude/logEvent) No API key passed when initializing Amplitude 🔴');
+      log('(Amplitude/logEvent) No API key passed when initializing Amplitude 🔴');
     } else {
       await ensureInitialized();
       await Amplitude.getInstance().logEvent(eventType, eventProperties: eventProperties);

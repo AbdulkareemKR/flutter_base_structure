@@ -1,15 +1,15 @@
 import 'dart:developer';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_core/models/serivce_provider.dart';
-import 'package:garage_core/models/service.dart';
-import 'package:garage_core/models/timeslot.dart';
-import 'package:garage_core/models/user_car.dart';
-import 'package:garage_core/services/cars_repo.dart';
-import 'package:garage_core/services/firestore_repo.dart';
-import 'package:garage_core/services/service_providers_repo.dart';
-import 'package:garage_core/services/timeslots_services.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'package:garage_client/global_services/models/serivce_provider.dart';
+import 'package:garage_client/global_services/models/service.dart';
+import 'package:garage_client/global_services/models/timeslot.dart';
+import 'package:garage_client/global_services/models/user_car.dart';
+import 'package:garage_client/global_services/services/cars_repo.dart';
+import 'package:garage_client/global_services/services/firestore_repo.dart';
+import 'package:garage_client/global_services/services/service_providers_repo.dart';
+import 'package:garage_client/global_services/services/timeslots_services.dart';
+
 import 'package:intl/intl.dart';
 
 final timeslotsRepoProvider = Provider<TimeslotsRepo>((ref) {
@@ -52,7 +52,8 @@ class TimeslotsRepo {
       }
     } catch (e) {
       /// If any exception occurred
-      e.logException();
+      log('$e');
+      ;
       return false;
     }
   }

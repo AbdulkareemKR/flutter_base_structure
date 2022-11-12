@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:garage_client/global_providers/car_owner_provider.dart';
-import 'package:garage_core/models/wallet.dart';
+import 'package:garage_client/global_services/models/wallet.dart';
 
 final walletProvider = StreamProvider<Wallet?>((ref) {
   return ref.watch(carOwnerProvider).maybeWhen(

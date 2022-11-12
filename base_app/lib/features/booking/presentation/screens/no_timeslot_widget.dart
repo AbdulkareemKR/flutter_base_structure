@@ -7,8 +7,8 @@ import 'package:garage_client/utils/theme/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garage_client/widgets/custom_button/custom_button.dart';
 import 'package:garage_client/widgets/custom_button/enums/button_style.dart';
-import 'package:garage_core/services/easy_navigator.dart';
-import 'package:garage_core/widgets/bottom_sheet/utils/sheet.dart';
+import 'package:garage_client/global_services/services/easy_navigator.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/utils/sheet.dart';
 
 class NoTimeslotWidget extends StatelessWidget {
   const NoTimeslotWidget({Key? key}) : super(key: key);

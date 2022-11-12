@@ -11,10 +11,10 @@ import 'package:garage_client/global_providers/car_owner_provider.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:garage_client/global_providers/orders_provider.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/services/easy_navigator.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/services/easy_navigator.dart';
 import 'package:garage_client/localization/localization.dart';
-import 'package:garage_core/services/order_repo.dart';
+import 'package:garage_client/global_services/services/order_repo.dart';
 
 class TrackingOrderController {
   final BuildContext context;

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,11 +17,10 @@ import 'package:garage_client/widgets/custom_button/custom_button.dart';
 import 'package:garage_client/widgets/custom_popup.dart';
 import 'package:garage_client/widgets/custom_textfield/custom_textfield.dart';
 import 'package:garage_client/widgets/radio_button/radio_button.dart';
-import 'package:garage_core/services/easy_navigator.dart';
-import 'package:garage_core/utilis/logger/extensions.dart';
-import 'package:garage_core/widgets/conditionary_widget/conditionary_widget.dart';
-import 'package:garage_core/widgets/custom_textfield/textfield_types.dart';
-import 'package:garage_core/widgets/loading_container.dart';
+import 'package:garage_client/global_services/services/easy_navigator.dart';
+import 'package:garage_client/global_services/widgets/conditionary_widget/conditionary_widget.dart';
+import 'package:garage_client/global_services/widgets/custom_textfield/textfield_types.dart';
+import 'package:garage_client/global_services/widgets/loading_container.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class LocationScreen extends ConsumerStatefulWidget {
@@ -121,7 +122,7 @@ class _LocationScreenState extends ConsumerState<LocationScreen> {
                                               data: (data) =>
                                                   '${data.translated}, ${carOwnerInfo.locations[index].note!}',
                                               error: (error, stackTrace) {
-                                                error.logException();
+                                                log('$error');
                                                 return '';
                                               },
                                               loading: () => '',

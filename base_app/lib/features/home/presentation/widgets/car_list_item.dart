@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,8 +7,7 @@ import 'package:garage_client/app.dart';
 import 'package:garage_client/constants/colors_const.dart';
 import 'package:garage_client/global_providers/car_name_provider.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
-import 'package:garage_core/models/user_car.dart';
-import 'package:garage_core/utilis/logger/extensions.dart';
+import 'package:garage_client/global_services/models/user_car.dart';
 
 class CarListItem extends ConsumerWidget {
   const CarListItem({
@@ -41,7 +42,7 @@ class CarListItem extends ConsumerWidget {
                       ref.watch(carNameProvider(car.carId ?? '')).when(
                           data: (carName) => carName,
                           error: ((error, stackTrace) {
-                            error.logException();
+                            log('$error');
                             return '';
                           }),
                           loading: (() => '')),

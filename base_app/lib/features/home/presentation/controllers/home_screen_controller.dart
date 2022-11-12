@@ -4,14 +4,14 @@ import 'package:garage_client/features/booking/presentation/screens/booking_scre
 import 'package:garage_client/features/cars/presentation/screens/add_cars_screen.dart';
 import 'package:garage_client/features/loaction/presentation/screens/location_screen.dart';
 import 'package:garage_client/features/tracking_order/presentation/screens/tracking_order_screen.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/models/service.dart';
-import 'package:garage_core/models/user_car.dart';
-import 'package:garage_core/services/auth_services.dart';
-import 'package:garage_core/services/firestore_services.dart';
-import 'package:garage_core/services/easy_navigator.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/models/service.dart';
+import 'package:garage_client/global_services/models/user_car.dart';
+import 'package:garage_client/global_services/services/auth_services.dart';
+import 'package:garage_client/global_services/services/firestore_services.dart';
+import 'package:garage_client/global_services/services/easy_navigator.dart';
 import 'package:garage_client/features/settings/presentation/screens/setting_screen.dart';
-import 'package:garage_core/widgets/bottom_sheet/bottom_sheet_navigator.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/bottom_sheet_navigator.dart';
 
 final homeScreenControllerProvider = Provider<HomeScreenController>((ref) {
   return HomeScreenController();

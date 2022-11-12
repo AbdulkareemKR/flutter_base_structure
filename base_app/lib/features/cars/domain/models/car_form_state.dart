@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:garage_client/features/cars/domain/enums/car_view_mode.dart';
-import 'package:garage_core/models/car.dart';
-import 'package:garage_core/models/color.dart';
-import 'package:garage_core/models/translatable.dart';
+import 'package:garage_client/global_services/models/car.dart';
+import 'package:garage_client/global_services/models/color.dart';
+import 'package:garage_client/global_services/models/translatable.dart';
 
 part 'car_form_state.freezed.dart';
 part 'car_form_state.g.dart';

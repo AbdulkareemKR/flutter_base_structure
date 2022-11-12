@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
-import 'package:garage_core/models/location.dart';
-import 'package:garage_core/models/exportable.dart';
-import 'package:garage_core/models/translatable.dart';
-import 'package:garage_core/services/list_services.dart';
+import 'package:garage_client/global_services/models/location.dart';
+import 'package:garage_client/global_services/models/exportable.dart';
+import 'package:garage_client/global_services/models/translatable.dart';
+import 'package:garage_client/global_services/services/list_services.dart';
 
 class City implements Exportable {
   final String id;
@@ -40,7 +40,7 @@ class City implements Exportable {
     return City(
       id: map['id'] as String,
       name: Translatable.fromMap(map['name'] as Map<String, dynamic>),
-      cityCircle: map['cityCircle'] == null? null: fromListOfMap(Location.fromMap, map['cityCircle']),
+      cityCircle: map['cityCircle'] == null ? null : fromListOfMap(Location.fromMap, map['cityCircle']),
     );
   }
 

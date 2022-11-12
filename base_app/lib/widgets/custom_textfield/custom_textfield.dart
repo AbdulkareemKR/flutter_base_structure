@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garage_client/constants/colors_const.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
-import 'package:garage_core/constants/constants.dart';
-import 'package:garage_core/widgets/custom_textfield/controller.dart';
-import 'package:garage_core/widgets/custom_textfield/textfield_types.dart';
+import 'package:garage_client/global_services/constants/constants.dart';
+import 'package:garage_client/global_services/widgets/custom_textfield/controller.dart';
+import 'package:garage_client/global_services/widgets/custom_textfield/textfield_types.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({

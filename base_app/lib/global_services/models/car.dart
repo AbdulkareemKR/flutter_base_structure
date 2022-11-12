@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:garage_core/enums/car_class.dart';
-import 'package:garage_core/enums/car_type.dart';
-import 'package:garage_core/models/translatable.dart';
-import 'package:garage_core/services/enum_services.dart';
+import 'package:garage_client/global_services/enums/car_class.dart';
+import 'package:garage_client/global_services/enums/car_type.dart';
+import 'package:garage_client/global_services/models/translatable.dart';
+import 'package:garage_client/global_services/services/enum_services.dart';
 
-export 'package:garage_core/enums/car_class.dart';
-export 'package:garage_core/enums/car_type.dart';
+export 'package:garage_client/global_services/enums/car_class.dart';
+export 'package:garage_client/global_services/enums/car_type.dart';
 
 class Car {
   String id;

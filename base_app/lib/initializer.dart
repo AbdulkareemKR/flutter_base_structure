@@ -1,8 +1,9 @@
+import 'dart:developer';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:garage_client/environments/services/environment_services.dart';
-import 'package:garage_core/services/amplitude_services.dart';
+import 'package:garage_client/global_services/services/amplitude_services.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+
 import 'package:intl/date_symbol_data_local.dart';
 
 class Initializer {
@@ -18,7 +19,8 @@ class Initializer {
 
       return true;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return false;
     }
   }
@@ -27,7 +29,8 @@ class Initializer {
     try {
       await AmplitudeServices.init(Environment.instance.apiKeys?.amplitude ?? '');
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
     }
   }
 
@@ -36,8 +39,9 @@ class Initializer {
       // TODO : use local
       await initializeDateFormatting('ar_SA');
     } catch (e) {
-      e.logException();
-      GLogger.error('Failed to init DateFormatting!');
+      log('$e');
+      ;
+      log('Failed to init DateFormatting!');
     }
   }
 
@@ -47,10 +51,10 @@ class Initializer {
         options: Environment.instance.firebase?.firebaseOptions,
       );
 
-      GLogger.info(
-          "(Initializer/initFirebase) Firebase project [${Firebase.app().options.projectId}] status: initialized ✅");
+      log("(Initializer/initFirebase) Firebase project [${Firebase.app().options.projectId}] status: initialized ✅");
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
     }
   }
 }

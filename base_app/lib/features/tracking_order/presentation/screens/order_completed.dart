@@ -8,13 +8,13 @@ import 'package:garage_client/features/tracking_order/presentation/widgets/star_
 import 'package:garage_client/utils/theme/extensions.dart';
 import 'package:garage_client/widgets/custom_button/custom_button.dart';
 import 'package:garage_client/widgets/custom_button/enums/button_style.dart';
-import 'package:garage_core/constants/constants.dart';
+import 'package:garage_client/global_services/constants/constants.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:garage_client/localization/localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/widgets/bottom_sheet/utils/sheet.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/utils/sheet.dart';
 
 class OrderCompleted extends ConsumerStatefulWidget {
   const OrderCompleted({required this.order, Key? key}) : super(key: key);

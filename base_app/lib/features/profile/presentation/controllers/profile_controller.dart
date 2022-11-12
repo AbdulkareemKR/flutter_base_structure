@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:garage_client/global_providers/car_owner_provider.dart';
-import 'package:garage_core/services/car_owner_repo.dart';
+import 'package:garage_client/global_services/services/car_owner_repo.dart';
 
 final profileStateProvider = StateNotifierProvider<ProfileStateNotifier, AsyncValue<void>>((ref) {
   return ProfileStateNotifier(ref: ref);

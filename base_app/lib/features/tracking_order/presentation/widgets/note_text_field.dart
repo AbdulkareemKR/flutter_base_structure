@@ -3,7 +3,7 @@ import 'package:garage_client/features/tracking_order/presentation/controllers/t
 import 'package:garage_client/constants/colors_const.dart';
 import 'package:garage_client/constants/spacing_const.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
-import 'package:garage_core/constants/constants.dart';
+import 'package:garage_client/global_services/constants/constants.dart';
 import 'package:garage_client/localization/localization.dart';
 
 class NoteTextField extends StatelessWidget {

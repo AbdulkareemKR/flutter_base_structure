@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:garage_client/features/cars/domain/enums/car_view_mode.dart';
@@ -7,13 +9,12 @@ import 'package:garage_client/features/cars/domain/providers/color_page_index_pr
 import 'package:garage_client/global_providers/car_owner_provider.dart';
 import 'package:garage_client/localization/localization.dart';
 import 'package:garage_client/widgets/animated_dialog.dart';
-import 'package:garage_core/models/car.dart';
-import 'package:garage_core/models/color.dart';
-import 'package:garage_core/models/plate.dart';
-import 'package:garage_core/models/translatable.dart';
-import 'package:garage_core/models/user_car.dart';
-import 'package:garage_core/services/car_services.dart';
-import 'package:garage_core/utilis/logger/extensions.dart';
+import 'package:garage_client/global_services/models/car.dart';
+import 'package:garage_client/global_services/models/color.dart';
+import 'package:garage_client/global_services/models/plate.dart';
+import 'package:garage_client/global_services/models/translatable.dart';
+import 'package:garage_client/global_services/models/user_car.dart';
+import 'package:garage_client/global_services/services/car_services.dart';
 
 final carStateProvider =
     StateNotifierProvider.autoDispose.family<CarsStateNotifier, AsyncValue<CarFormState>, UserCar?>((ref, userCar) {
@@ -61,7 +62,7 @@ class CarsStateNotifier extends StateNotifier<AsyncValue<CarFormState>> {
         }
       },
       error: (error, stackTrace) {
-        error.logException();
+        log('$error');
         state = AsyncError(error, StackTrace.current);
       },
       loading: () {
@@ -109,7 +110,8 @@ class CarsStateNotifier extends StateNotifier<AsyncValue<CarFormState>> {
           GarageDialog.show(context: context, style: DialogStyle.error, message: 'cars.unexpectedError'.translate());
         }
       } catch (e) {
-        e.logException();
+        log('$e');
+        ;
         GarageDialog.show(context: context, style: DialogStyle.error, message: 'cars.fillAllFields'.translate());
       }
     });
@@ -130,7 +132,8 @@ class CarsStateNotifier extends StateNotifier<AsyncValue<CarFormState>> {
         GarageDialog.show(context: context, style: DialogStyle.success, message: 'cars.carDeleted'.translate());
       }
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       GarageDialog.show(context: context, style: DialogStyle.error, message: 'cars.unexpectedError'.translate());
     }
   }
@@ -156,7 +159,8 @@ class CarsStateNotifier extends StateNotifier<AsyncValue<CarFormState>> {
           GarageDialog.show(context: context, style: DialogStyle.error, message: 'cars.unexpectedError'.translate());
         }
       } catch (e) {
-        e.logException();
+        log('$e');
+        ;
 
         GarageDialog.show(context: context, style: DialogStyle.error, message: 'cars.fillAllFields'.translate());
       }

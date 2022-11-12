@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:garage_client/constants/constants.dart';
+import 'package:garage_client/constants/colors_const.dart';
 import 'package:garage_client/constants/spacing_const.dart';
-import 'package:garage_client/features/login/domain/login_providers.dart';
-import 'package:garage_client/features/login/presentation/controllers/login_controller.dart';
+import 'package:garage_client/features/login/presentation/controllers/login_screen_controller.dart';
 import 'package:garage_client/widgets/custom_button/custom_button.dart';
-import 'package:garage_client/widgets/custom_phone_text_field.dart';
+import 'package:garage_client/widgets/custom_textfield/custom_textfield.dart';
+
+import 'package:garage_client/global_services/widgets/custom_textfield/textfield_types.dart';
+
 import 'package:garage_client/widgets/locale_positioned.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garage_client/widgets/vector_background_widget.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
-import 'package:garage_client/localization/localization.dart';
-import 'package:garage_core/widgets/bottom_sheet/utils/sheet.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/utils/sheet.dart';
+import 'package:garage_client/features/login/presentation/controllers/login_screen_controller.dart';
+import 'package:garage_client/localization/extensions.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -21,10 +24,15 @@ class LoginScreen extends ConsumerStatefulWidget {
 }
 
 class _LoginScreenState extends ConsumerState<LoginScreen> {
+  late final LoginScreenController _controller;
+  @override
+  void didChangeDependencies() {
+    _controller = LoginScreenController(context: context, ref: ref);
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final _controller = ref.watch(loginScreenControllerProvider.notifier);
-    _controller.context = context;
     return Sheet(
       children: [
         SizedBox(
@@ -51,21 +59,31 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         ),
         Text("login.loginToServeYou".translate(), style: context.textThemes.bodyMedium),
         SpacingConst.vSpacing20,
-        Form(
-          key: _controller.phoneNumberFormKey,
-          child: CustomPhoneTextField(
-            onChange: ref.watch(loginInfoProvider.notifier).updatePhoneNumber,
-            validator: _controller.phoneNumberValidator,
-          ),
+        CustomTextField(
+          label: "email".translate(),
+          type: TextFieldType.normal,
+          controller: _controller.emailController,
+          width: 300.w,
+          height: 50.h,
+          placeHolderText: "example@Garage.com",
         ),
+        SpacingConst.vSpacing16,
+        CustomTextField(
+          isPassword: true,
+          label: "password".translate(),
+          type: TextFieldType.normal,
+          controller: _controller.passwordController,
+          width: 300.w,
+          height: 50.h,
+          placeHolderText: "*********",
+        )
       ],
       footer: [
         CustomButton(
           width: 317.w,
           height: 50.h,
-          onPressed: _controller.onContinuePressed,
-          icon: GarageIcons.fast_arrow_right,
-          label: 'continue'.translate(),
+          onPressed: _controller.onLoginPressed,
+          label: 'loginButton'.translate(),
         ),
       ],
     );

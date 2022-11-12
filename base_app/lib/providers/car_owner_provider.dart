@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_core/models/car_owner.dart';
-import 'package:garage_core/services/auth_services.dart';
-import 'package:garage_core/services/car_owner_repo.dart';
+import 'package:garage_client/global_services/models/car_owner.dart';
+import 'package:garage_client/global_services/services/auth_services.dart';
+import 'package:garage_client/global_services/services/car_owner_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 final carOwnerProvider = StateNotifierProvider<CarOwnerNotifier, CarOwner?>((ref) {

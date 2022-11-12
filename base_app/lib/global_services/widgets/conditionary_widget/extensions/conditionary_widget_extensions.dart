@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:garage_core/widgets/conditionary_widget/widgets/conditionary_widget.dart';
+import 'package:garage_client/global_services/widgets/conditionary_widget/widgets/conditionary_widget.dart';
 
 extension ConditionaryWidgetOnList<T> on List<T> {
   /// If the [List] is empty, show the empty widget, otherwise show the notEmpty widget.

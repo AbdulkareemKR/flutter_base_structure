@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:garage_core/models/timeslot.dart';
+import 'package:garage_client/global_services/models/timeslot.dart';
 
 part 'available_service_data.freezed.dart';
 

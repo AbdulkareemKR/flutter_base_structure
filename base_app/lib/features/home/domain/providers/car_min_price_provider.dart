@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:garage_client/features/home/domain/providers/active_car_index_provider.dart';
 import 'package:garage_client/global_providers/user_cars_provider.dart';
-import 'package:garage_core/models/service.dart';
-import 'package:garage_core/services/car_services.dart';
+import 'package:garage_client/global_services/models/service.dart';
+import 'package:garage_client/global_services/services/car_services.dart';
 
 final carMinPriceProvider = FutureProvider.family.autoDispose<double, Service>((ref, service) async {
   return ref.watch(userCarsProvider).maybeWhen(

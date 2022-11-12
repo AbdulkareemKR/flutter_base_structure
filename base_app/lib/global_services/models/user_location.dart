@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:garage_core/models/exportable.dart';
+import 'package:garage_client/global_services/models/exportable.dart';
 
 class UserLocation implements Exportable {
   String? id;

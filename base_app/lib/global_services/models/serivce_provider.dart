@@ -1,17 +1,17 @@
 import 'dart:convert';
 import 'package:collection/collection.dart';
-import 'package:garage_core/models/available_service.dart';
-import 'package:garage_core/models/bank_info.dart';
-import 'package:garage_core/models/city.dart';
-import 'package:garage_core/models/cloud_image.dart';
-import 'package:garage_core/models/location.dart';
-import 'package:garage_core/models/translatable.dart';
-import 'package:garage_core/enums/service_status.dart';
-import 'package:garage_core/services/enum_services.dart';
-import 'package:garage_core/services/list_services.dart';
+import 'package:garage_client/global_services/models/available_service.dart';
+import 'package:garage_client/global_services/models/bank_info.dart';
+import 'package:garage_client/global_services/models/city.dart';
+import 'package:garage_client/global_services/models/cloud_image.dart';
+import 'package:garage_client/global_services/models/location.dart';
+import 'package:garage_client/global_services/models/translatable.dart';
+import 'package:garage_client/global_services/enums/service_status.dart';
+import 'package:garage_client/global_services/services/enum_services.dart';
+import 'package:garage_client/global_services/services/list_services.dart';
 import '../enums/service_type.dart';
 
-export 'package:garage_core/enums/service_status.dart';
+export 'package:garage_client/global_services/enums/service_status.dart';
 export '../enums/service_type.dart';
 
 class ServiceProvider {

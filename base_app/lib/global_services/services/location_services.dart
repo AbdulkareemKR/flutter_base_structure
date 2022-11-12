@@ -1,9 +1,11 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:garage_core/models/car_owner.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/services/car_owner_services.dart';
-import 'package:garage_core/services/firestore_services.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'package:garage_client/global_services/models/car_owner.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/services/car_owner_services.dart';
+import 'package:garage_client/global_services/services/firestore_services.dart';
+
 import 'package:geolocator/geolocator.dart';
 
 /// Determine the current position of the device.
@@ -55,14 +57,15 @@ Future<bool> addLocationForUid(String uid, UserLocation location) async {
 
         return true;
       } else {
-        GLogger.debug('The location already exists');
+        log('The location already exists');
         return false;
       }
     } else {
       return false;
     }
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return false;
   }
 }
@@ -88,13 +91,14 @@ Future<bool> deleteLocationForUid(String uid, UserLocation location) async {
         }
         return true;
       } else {
-        GLogger.warning('The user dose not have this location');
+        log('The user dose not have this location');
         return false;
       }
     }
     return false;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return false;
   }
 }
@@ -107,7 +111,8 @@ Future<bool> editLocationForUid(String uid, UserLocation location) async {
       try {
         locationToEdit = carOwner.locations.firstWhere((locationElement) => location.id == locationElement.id);
       } catch (e) {
-        e.logException();
+        log('$e');
+        ;
       }
       if (locationToEdit != null) {
         final newLocations = carOwner.locations.toList();
@@ -130,7 +135,8 @@ Future<bool> editLocationForUid(String uid, UserLocation location) async {
     }
     return false;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return false;
   }
 }
@@ -149,7 +155,8 @@ Stream<TechLiveLocation?> getTechLiveLocation(String orderId) {
     });
     return snapshot;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return const Stream.empty();
   }
 }

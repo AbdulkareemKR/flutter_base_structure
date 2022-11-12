@@ -1,6 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:garage_client/widgets/otp_text_field/otp_field.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
 
 /// An OTP Text field
 class OTPTextField extends StatefulWidget {
@@ -32,7 +33,7 @@ class OTPTextFieldState extends State<OTPTextField> {
   }
 
   void onAutoFill(String? otp) {
-    GLogger.info("Got auto fill OTP: $otp");
+    log("Got auto fill OTP: $otp");
 
     if ((otp?.length ?? 0) >= widget.fieldsCount) {
       for (int index = 0; index < otp!.length; index++) {

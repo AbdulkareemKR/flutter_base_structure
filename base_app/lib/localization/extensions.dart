@@ -1,5 +1,5 @@
 import 'package:garage_client/app.dart';
-import 'package:garage_core/models/translatable.dart';
+import 'package:garage_client/global_services/models/translatable.dart';
 
 import 'controllers.dart' as controller;
 

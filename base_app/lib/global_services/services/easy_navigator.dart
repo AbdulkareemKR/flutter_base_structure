@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
-import 'package:garage_core/widgets/bottom_sheet/src.dart';
-import 'package:garage_core/widgets/bottom_sheet/utils/bottom_sheet_wrapper.dart';
+
+import 'package:garage_client/global_services/widgets/bottom_sheet/src.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/utils/bottom_sheet_wrapper.dart';
 
 class EasyNavigator {
   static Future<T?> openPage<T>({
@@ -69,7 +69,7 @@ class EasyNavigator {
 
   /// Pop the view to the root view
   static void popToFirstView(BuildContext context) {
-    GLogger.debug("Pop to first view");
+    log("Pop to first view");
     Navigator.of(context).popUntil((route) => route.isFirst);
   }
 

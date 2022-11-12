@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:garage_core/models/coupon.dart';
+import 'package:garage_client/global_services/models/coupon.dart';
 
 List<Coupon> getCouponWithUid(String userID) {
   // TODO : implement firebase query to get the copons that have this user is

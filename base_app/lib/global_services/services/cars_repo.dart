@@ -1,8 +1,9 @@
-import 'package:garage_core/models/car.dart';
-import 'package:garage_core/models/translatable.dart';
-import 'package:garage_core/services/firestore_repo.dart';
+import 'dart:developer';
+
+import 'package:garage_client/global_services/models/car.dart';
+import 'package:garage_client/global_services/models/translatable.dart';
+import 'package:garage_client/global_services/services/firestore_repo.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
 
 final carsRepoProvider = Provider<CarsRepo>(
   (ref) => CarsRepo(ref.watch(firestoreRepoProvider)),
@@ -24,8 +25,9 @@ class CarsRepo {
         return car;
       }
     } catch (e) {
-      GLogger.warning('The car dose not exist!');
-      e.logException();
+      log('The car dose not exist!');
+      log('$e');
+      ;
       return null;
     }
     return null;

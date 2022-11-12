@@ -1,11 +1,11 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:garage_core/models/user_location.dart';
-import 'package:garage_core/models/user_car.dart';
-import 'package:garage_core/services/list_services.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'package:garage_client/global_services/models/user_location.dart';
+import 'package:garage_client/global_services/models/user_car.dart';
+import 'package:garage_client/global_services/services/list_services.dart';
 
 class CarOwner extends ChangeNotifier {
   // User id
@@ -39,9 +39,9 @@ class CarOwner extends ChangeNotifier {
         // If it is the first location added
         defaultLocation = location;
       }
-      GLogger.debug('Location has been added successfully');
+      log('Location has been added successfully');
     } else {
-      GLogger.warning('Location already exists');
+      log('Location already exists');
     }
     notifyListeners();
   }
@@ -123,7 +123,7 @@ class CarOwner extends ChangeNotifier {
 
   void changeDefaultLocation(UserLocation location) {
     if (!locations.contains(location)) {
-      GLogger.warning('The location $location was not in the user\'s locations, but it is added');
+      log('The location $location was not in the user\'s locations, but it is added');
       locations.add(location);
     }
     defaultLocation = location;
@@ -146,7 +146,7 @@ class CarOwner extends ChangeNotifier {
 
       notifyListeners();
     } else {
-      GLogger.warning('The location is not in the user\'s locations');
+      log('The location is not in the user\'s locations');
     }
   }
 }

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:garage_core/environments/environments.dart';
+import 'package:garage_client/global_services/environments/environments.dart';
 
 import 'api_keys_environment_variables.dart';
 

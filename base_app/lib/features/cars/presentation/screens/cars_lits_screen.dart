@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,10 +13,9 @@ import 'package:garage_client/localization/extensions.dart';
 import 'package:garage_client/utils/general_extensions.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
 import 'package:garage_client/widgets/custom_button/custom_button.dart';
-import 'package:garage_core/models/user_car.dart';
-import 'package:garage_core/utilis/logger/extensions.dart';
-import 'package:garage_core/widgets/bottom_sheet/bottom_sheet_navigator.dart';
-import 'package:garage_core/widgets/bottom_sheet/utils/sheet.dart';
+import 'package:garage_client/global_services/models/user_car.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/bottom_sheet_navigator.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/utils/sheet.dart';
 
 class CarsListScreen extends ConsumerStatefulWidget {
   const CarsListScreen({Key? key, this.userCar}) : super(key: key);
@@ -62,7 +63,7 @@ class _CarsListScreenState extends ConsumerState<CarsListScreen> {
                             ref.watch(carNameProvider(carState[index].carId ?? '')).when(
                                 data: (carName) => carName,
                                 error: ((error, stackTrace) {
-                                  error.logException();
+                                  log('$error');
                                   return '';
                                 }),
                                 loading: (() => '')),

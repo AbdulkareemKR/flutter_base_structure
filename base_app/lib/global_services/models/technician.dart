@@ -1,7 +1,7 @@
 import "dart:convert";
-import 'package:garage_core/enums/technician_status.dart';
-import 'package:garage_core/services/enum_services.dart';
-export 'package:garage_core/enums/technician_status.dart';
+import 'package:garage_client/global_services/enums/technician_status.dart';
+import 'package:garage_client/global_services/services/enum_services.dart';
+export 'package:garage_client/global_services/enums/technician_status.dart';
 
 class Technician {
   String uid;

@@ -10,8 +10,8 @@ import 'package:garage_client/utils/general_extensions.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
 import 'package:garage_client/widgets/custom_button/custom_button.dart';
 import 'package:garage_client/widgets/custom_textfield/custom_textfield.dart';
-import 'package:garage_core/widgets/bottom_sheet/utils/sheet.dart';
-import 'package:garage_core/widgets/custom_textfield/textfield_types.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/utils/sheet.dart';
+import 'package:garage_client/global_services/widgets/custom_textfield/textfield_types.dart';
 
 class ProfileScreen extends ConsumerStatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);

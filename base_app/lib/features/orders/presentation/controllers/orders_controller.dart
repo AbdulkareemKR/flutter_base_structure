@@ -4,9 +4,9 @@ import 'package:garage_client/constants/colors_const.dart';
 import 'package:garage_client/features/orders/presentation/screens/order_details_screen.dart';
 import 'package:garage_client/features/tracking_order/presentation/screens/rate_order.dart';
 import 'package:garage_client/features/tracking_order/presentation/screens/tracking_order_screen.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/services/easy_navigator.dart';
-import 'package:garage_core/widgets/bottom_sheet/bottom_sheet_navigator.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/services/easy_navigator.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/bottom_sheet_navigator.dart';
 
 class OrdersViewController {
   final BuildContext context;

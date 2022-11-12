@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:garage_core/enums/direction.dart';
-import 'package:garage_core/environments/models/environment.dart';
-import 'package:garage_core/models/exportable.dart';
+import 'package:garage_client/global_services/enums/direction.dart';
+import 'package:garage_client/global_services/environments/models/environment.dart';
+import 'package:garage_client/global_services/models/exportable.dart';
 
 class Location extends Exportable {
   final String? id;

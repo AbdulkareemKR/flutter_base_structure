@@ -1,8 +1,10 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:garage_core/models/timeslot.dart';
-import 'package:garage_core/models/timeslot_repeat.dart';
-import 'package:garage_core/services/firestore_services.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'package:garage_client/global_services/models/timeslot.dart';
+import 'package:garage_client/global_services/models/timeslot_repeat.dart';
+import 'package:garage_client/global_services/services/firestore_services.dart';
+
 import 'package:intl/intl.dart';
 
 Future<List<Timeslot>> getAvailableTimeslots(String serviceId) async {
@@ -89,7 +91,8 @@ Stream<List<Timeslot>> getTimeslotsStream(String serviceProviderId, {DateTime? d
 
     return timeslotStream;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return const Stream.empty();
   }
 }
@@ -103,7 +106,8 @@ Stream<List<TimeslotRepeat>> getTimeslotsRepeatStream(String serviceProviderId) 
 
     return timeslotRepeatStream;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return const Stream.empty();
   }
 }
@@ -115,7 +119,8 @@ Future<bool> addTimeslot(Timeslot timeslot) async {
     await docRef.set(timeslotToSave.toMap());
     return true;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return false;
   }
 }

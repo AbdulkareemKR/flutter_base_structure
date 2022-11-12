@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:garage_core/models/async_response/async_response.dart';
+import 'package:garage_client/global_services/models/async_response/async_response.dart';
 
 part 'cloud_function_response.freezed.dart';
 part 'cloud_function_response.g.dart';

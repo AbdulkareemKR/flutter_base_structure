@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/services/cities_repo.dart';
-import 'package:garage_core/services/service_providers_repo.dart';
-import 'package:garage_core/services/services_repo.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/services/cities_repo.dart';
+import 'package:garage_client/global_services/services/service_providers_repo.dart';
+import 'package:garage_client/global_services/services/services_repo.dart';
 import 'package:intl/intl.dart';
 
 final statisticRepoProvider = Provider<StatisticsRepo>((ref) {

@@ -1,4 +1,4 @@
-import 'package:garage_core/services/google_geocode_api/result.dart';
+import 'package:garage_client/global_services/services/google_geocode_api/result.dart';
 
 class GoogleGeocodeResult {
   List<Result>? results;

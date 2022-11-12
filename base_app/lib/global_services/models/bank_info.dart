@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:garage_core/models/translatable.dart';
+import 'package:garage_client/global_services/models/translatable.dart';
 
 class BankInfo {
   String name;

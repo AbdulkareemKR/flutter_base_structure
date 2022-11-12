@@ -1,7 +1,9 @@
-import 'package:garage_core/services/google_geocode_api/address_information.dart';
-import 'package:garage_core/services/google_geocode_api/google_geocode.dart';
+import 'dart:developer';
+
+import 'package:garage_client/global_services/services/google_geocode_api/address_information.dart';
+import 'package:garage_client/global_services/services/google_geocode_api/google_geocode.dart';
 import 'dart:convert';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:collection/collection.dart';
 
@@ -46,7 +48,7 @@ class GoogleGeocodeServices {
       final googleGeocode = GoogleGeocodeResult.fromMap(parsedJson);
       return getAddressFromGoogleGeocode(googleGeocode);
     } catch (e) {
-      GLogger.error(e.toString());
+      log(e.toString());
       return null;
     }
   }

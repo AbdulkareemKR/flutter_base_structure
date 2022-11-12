@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:garage_client/constants/icons/garage_icons.dart';
 import 'package:garage_client/localization/app_localization.dart';
-import 'package:garage_core/services/validator.dart';
+import 'package:garage_client/global_services/services/validator.dart';
 
 String translate(String key, {List<String> arguments = const []}) {
   if (Validator.safeListIsNotEmpty(arguments)) {

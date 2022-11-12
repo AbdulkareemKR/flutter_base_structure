@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:garage_client/features/home/presentation/screens/home_screen.dart';
-import 'package:garage_core/services/easy_navigator.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'package:garage_client/global_services/services/easy_navigator.dart';
+import 'dart:developer';
 
 class SplashScreenController {
   BuildContext context;
@@ -25,7 +25,7 @@ class SplashScreenController {
         break;
 
       default:
-        GLogger.info('snapshot type: ${snapshot.connectionState}');
+        log('snapshot type: ${snapshot.connectionState}');
     }
   }
 }

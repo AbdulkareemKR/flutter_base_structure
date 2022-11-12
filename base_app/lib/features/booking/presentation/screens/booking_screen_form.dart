@@ -4,9 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garage_client/constants/colors_const.dart';
 import 'package:garage_client/features/booking/presentation/screens/booking_screen.dart';
 import 'package:garage_client/features/booking/presentation/screens/review_booking_screen.dart';
-import 'package:garage_client/features/payment/presentation/controllers/payment_state_notifier.dart';
-import 'package:garage_client/features/payment/presentation/screens/payment_screen.dart';
-import 'package:garage_core/models/service.dart';
+import 'package:garage_client/global_services/models/service.dart';
 
 final bookingPageControllerProvider = Provider.autoDispose<PageController>((ref) {
   return PageController();
@@ -28,7 +26,6 @@ class _BookingScreenFromState extends ConsumerState<BookingScreenFrom> {
 
     /// Making sure that the payment provider is refreshed
     ///
-    ref.refresh(paymentStateProvider);
     super.initState();
   }
 
@@ -48,7 +45,6 @@ class _BookingScreenFromState extends ConsumerState<BookingScreenFrom> {
             ReviewBookingScreen(
               service: widget.service,
             ),
-            const PaymentScreen()
           ]),
     );
   }

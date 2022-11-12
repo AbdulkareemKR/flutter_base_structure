@@ -9,13 +9,13 @@ import 'package:garage_client/features/orders/presentation/widgets/expandable_co
 import 'package:garage_client/features/orders/presentation/widgets/help_list_item.dart';
 import 'package:garage_client/widgets/order_container.dart';
 import 'package:garage_client/localization/localization.dart';
-import 'package:garage_core/models/order.dart';
+import 'package:garage_client/global_services/models/order.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
-import 'package:garage_core/services/order_repo.dart';
-import 'package:garage_core/services/services_repo.dart';
-import 'package:garage_core/widgets/bottom_sheet/utils/sheet.dart';
-import 'package:garage_core/widgets/conditionary_widget/conditionary_widget.dart';
+import 'package:garage_client/global_services/services/order_repo.dart';
+import 'package:garage_client/global_services/services/services_repo.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/utils/sheet.dart';
+import 'package:garage_client/global_services/widgets/conditionary_widget/conditionary_widget.dart';
 import 'package:garage_client/utils/general_extensions.dart';
 
 class OrderDetailsScreen extends ConsumerStatefulWidget {

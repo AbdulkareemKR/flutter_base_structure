@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:garage_core/widgets/bottom_sheet/src.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/src.dart';
 
 const Duration _bottomSheetDuration = Duration(milliseconds: 400);
 

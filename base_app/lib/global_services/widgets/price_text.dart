@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:garage_core/constants/constants.dart';
-import 'package:garage_core/enums/currency.dart';
-import 'package:garage_core/services/double_services.dart';
-import 'package:garage_core/services/wallet_services.dart';
+import 'package:garage_client/global_services/constants/constants.dart';
+import 'package:garage_client/global_services/enums/currency.dart';
+import 'package:garage_client/global_services/services/double_services.dart';
+import 'package:garage_client/global_services/services/wallet_services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 const amountSmallerFraction = 4;

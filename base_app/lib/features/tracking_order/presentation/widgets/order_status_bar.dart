@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:garage_client/constants/constants.dart';
 import 'package:garage_client/constants/spacing_const.dart';
-import 'package:garage_core/constants/constants.dart';
-import 'package:garage_core/enums/order_status.dart';
+import 'package:garage_client/global_services/constants/constants.dart';
+import 'package:garage_client/global_services/enums/order_status.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OrderStatusBar extends StatelessWidget {

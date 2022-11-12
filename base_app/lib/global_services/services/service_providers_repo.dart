@@ -1,9 +1,7 @@
 import 'dart:developer';
-import 'package:garage_core/models/serivce_provider.dart';
-import 'package:garage_core/services/firestore_repo.dart';
+import 'package:garage_client/global_services/models/serivce_provider.dart';
+import 'package:garage_client/global_services/services/firestore_repo.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
-
 
 final serviceProviderRepoProvider = Provider<ServiceProvidersRepo>(
   (ref) => ServiceProvidersRepo(
@@ -23,7 +21,8 @@ class ServiceProvidersRepo {
         return serviceProvider;
       }
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
     }
     return null;
   }

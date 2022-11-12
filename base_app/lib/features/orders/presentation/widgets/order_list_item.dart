@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:garage_client/app.dart';
 import 'package:garage_client/constants/constants.dart';
 import 'package:garage_client/constants/spacing_const.dart';
-import 'package:garage_core/constants/constants.dart';
-import 'package:garage_core/models/order.dart';
+import 'package:garage_client/global_services/constants/constants.dart';
+import 'package:garage_client/global_services/models/order.dart';
 import 'package:garage_client/localization/localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
-import 'package:garage_core/services/date_time_services.dart';
+import 'package:garage_client/global_services/services/date_time_services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_core/services/services_repo.dart';
+import 'package:garage_client/global_services/services/services_repo.dart';
 
 class OrderListItem extends ConsumerStatefulWidget {
   final void Function(Order) onPressed;

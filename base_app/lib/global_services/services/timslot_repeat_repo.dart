@@ -1,7 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_core/models/timeslot_repeat.dart';
-import 'package:garage_core/services/firestore_repo.dart';
-import 'package:garage_core/utilis/logger/extensions.dart';
+import 'package:garage_client/global_services/models/timeslot_repeat.dart';
+import 'package:garage_client/global_services/services/firestore_repo.dart';
 
 final timeslotRepeatRepoProvider = Provider<TimeslotRepeatRepo>((ref) {
   return TimeslotRepeatRepo(firestoreRepo: ref.watch(firestoreRepoProvider));
@@ -20,7 +21,8 @@ class TimeslotRepeatRepo {
       }
       return true;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return false;
     }
   }
@@ -32,7 +34,8 @@ class TimeslotRepeatRepo {
       await docRef.set(timeslotCopy.toMap());
       return true;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return false;
     }
   }
@@ -43,7 +46,8 @@ class TimeslotRepeatRepo {
 
       return true;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return false;
     }
   }
@@ -54,7 +58,8 @@ class TimeslotRepeatRepo {
 
       return true;
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
       return false;
     }
   }

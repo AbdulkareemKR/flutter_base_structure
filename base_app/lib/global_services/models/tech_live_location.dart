@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:garage_core/models/flutter_timestamp.dart';
-import 'package:garage_core/models/location.dart';
+import 'package:garage_client/global_services/models/flutter_timestamp.dart';
+import 'package:garage_client/global_services/models/location.dart';
 
 class TechLiveLocation {
   String id;

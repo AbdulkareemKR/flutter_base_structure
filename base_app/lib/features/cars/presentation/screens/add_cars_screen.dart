@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,14 +22,13 @@ import 'package:garage_client/utils/theme/extensions.dart';
 import 'package:garage_client/widgets/custom_button/custom_button.dart';
 import 'package:garage_client/widgets/custom_dropdown.dart';
 import 'package:garage_client/widgets/selected_indecator.dart';
-import 'package:garage_core/models/car.dart';
-import 'package:garage_core/models/color.dart';
-import 'package:garage_core/models/translatable.dart';
-import 'package:garage_core/models/user_car.dart';
-import 'package:garage_core/utilis/logger/extensions.dart';
-import 'package:garage_core/widgets/bottom_sheet/utils/sheet.dart';
-import 'package:garage_core/widgets/conditionary_widget/widgets/conditionary_widget.dart';
-import 'package:garage_core/widgets/loading_container.dart';
+import 'package:garage_client/global_services/models/car.dart';
+import 'package:garage_client/global_services/models/color.dart';
+import 'package:garage_client/global_services/models/translatable.dart';
+import 'package:garage_client/global_services/models/user_car.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/utils/sheet.dart';
+import 'package:garage_client/global_services/widgets/conditionary_widget/widgets/conditionary_widget.dart';
+import 'package:garage_client/global_services/widgets/loading_container.dart';
 
 class AddCarsScreen extends ConsumerStatefulWidget {
   const AddCarsScreen({Key? key, this.userCar}) : super(key: key);
@@ -78,7 +79,7 @@ class _AddCarsScreenState extends ConsumerState<AddCarsScreen> {
                         );
                       },
                       error: (error, stackTrace) {
-                        error.logException();
+                        log('$error');
                         return const SizedBox.shrink();
                       },
                     );
@@ -109,7 +110,7 @@ class _AddCarsScreenState extends ConsumerState<AddCarsScreen> {
                         );
                       },
                       error: (error, stackTrace) {
-                        error.logException();
+                        log('$error');
                         return const SizedBox.shrink();
                       },
                     );

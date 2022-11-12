@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart' show Timestamp;
-import 'package:garage_core/enums/gift_type.dart';
-import 'package:garage_core/models/transaction.dart';
-import 'package:garage_core/services/enum_services.dart';
+import 'package:garage_client/global_services/enums/gift_type.dart';
+import 'package:garage_client/global_services/models/transaction.dart';
+import 'package:garage_client/global_services/services/enum_services.dart';
 import 'package:http/http.dart';
-export 'package:garage_core/enums/gift_type.dart';
+export 'package:garage_client/global_services/enums/gift_type.dart';
 
 class GiftCard {
   final String? id;

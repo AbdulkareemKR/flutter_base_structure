@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/models/timeslot.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/models/timeslot.dart';
 import 'package:intl/intl.dart';
 
 Map<String, String> localMap = {"ar": "ar_sa", "en": "en_us"};

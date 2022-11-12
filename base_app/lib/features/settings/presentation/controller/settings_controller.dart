@@ -4,9 +4,9 @@ import 'package:garage_client/features/cars/presentation/screens/cars_lits_scree
 import 'package:garage_client/features/orders/presentation/screens/orders_screen.dart';
 import 'package:garage_client/features/profile/presentation/screens/profile_screen.dart';
 import 'package:garage_client/features/wallet/presentation/screens/wallet_screen.dart';
-import 'package:garage_core/services/auth_services.dart';
-import 'package:garage_core/services/easy_navigator.dart';
-import 'package:garage_core/widgets/bottom_sheet/bottom_sheet_navigator.dart';
+import 'package:garage_client/global_services/services/auth_services.dart';
+import 'package:garage_client/global_services/services/easy_navigator.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/bottom_sheet_navigator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsController {

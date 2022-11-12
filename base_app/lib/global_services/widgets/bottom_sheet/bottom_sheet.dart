@@ -5,8 +5,7 @@
 import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:garage_core/widgets/bottom_sheet/src.dart';
-
+import 'package:garage_client/global_services/widgets/bottom_sheet/src.dart';
 
 const Curve _decelerateEasing = Cubic(0.0, 0.0, 0.2, 1.0);
 const Curve _modalBottomSheetCurve = _decelerateEasing;
@@ -15,8 +14,7 @@ const double _minFlingVelocity = 500.0;
 const double _closeProgressThreshold = 0.6;
 const double _willPopThreshold = 0.8;
 
-typedef WidgetWithChildBuilder = Widget Function(
-    BuildContext context, Animation<double> animation, Widget child);
+typedef WidgetWithChildBuilder = Widget Function(BuildContext context, Animation<double> animation, Widget child);
 
 /// A custom bottom sheet.
 ///
@@ -120,8 +118,7 @@ class ModalBottomSheet extends StatefulWidget {
   }
 }
 
-class _ModalBottomSheetState extends State<ModalBottomSheet>
-    with TickerProviderStateMixin {
+class _ModalBottomSheetState extends State<ModalBottomSheet> with TickerProviderStateMixin {
   final GlobalKey _childKey = GlobalKey(debugLabel: 'BottomSheet child');
 
   ScrollController get _scrollController => widget.scrollController;
@@ -134,20 +131,17 @@ class _ModalBottomSheetState extends State<ModalBottomSheet>
     return renderBox.size.height;
   }
 
-  bool get _dismissUnderway =>
-      widget.animationController.status == AnimationStatus.reverse;
+  bool get _dismissUnderway => widget.animationController.status == AnimationStatus.reverse;
 
   // Detect if user is dragging.
   // Used on NotificationListener to detect if ScrollNotifications are
   // before or after the user stop dragging
   bool isDragging = false;
 
-  bool get hasReachedWillPopThreshold =>
-      widget.animationController.value < _willPopThreshold;
+  bool get hasReachedWillPopThreshold => widget.animationController.value < _willPopThreshold;
 
   bool get hasReachedCloseThreshold =>
-      widget.animationController.value <
-      (widget.closeProgressThreshold ?? _closeProgressThreshold);
+      widget.animationController.value < (widget.closeProgressThreshold ?? _closeProgressThreshold);
 
   void _close() {
     isDragging = false;
@@ -264,17 +258,14 @@ class _ModalBottomSheetState extends State<ModalBottomSheet>
     // ignore: invalid_use_of_protected_member
     if (_scrollController.positions.length > 1) return;
 
-    if (_scrollController !=
-        Scrollable.of(notification.context!)!.widget.controller) return;
+    if (_scrollController != Scrollable.of(notification.context!)!.widget.controller) return;
 
     final scrollPosition = _scrollController.position;
 
     if (scrollPosition.axis == Axis.horizontal) return;
 
     final isScrollReversed = scrollPosition.axisDirection == AxisDirection.down;
-    final offset = isScrollReversed
-        ? scrollPosition.pixels
-        : scrollPosition.maxScrollExtent - scrollPosition.pixels;
+    final offset = isScrollReversed ? scrollPosition.pixels : scrollPosition.maxScrollExtent - scrollPosition.pixels;
 
     if (offset <= 0) {
       // Clamping Scroll Physics end with a ScrollEndNotification with a DragEndDetail class
@@ -327,8 +318,7 @@ class _ModalBottomSheetState extends State<ModalBottomSheet>
   @override
   void initState() {
     animationCurve = _defaultCurve;
-    _bounceDragController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    _bounceDragController = AnimationController(vsync: this, duration: Duration(milliseconds: 300));
 
     // Todo: Check if we can remove scroll Controller
     super.initState();
@@ -356,10 +346,8 @@ class _ModalBottomSheetState extends State<ModalBottomSheet>
       animation: widget.animationController,
       builder: (context, Widget? child) {
         assert(child != null);
-        final animationValue = animationCurve.transform(
-            mediaQuery.accessibleNavigation
-                ? 1.0
-                : widget.animationController.value);
+        final animationValue =
+            animationCurve.transform(mediaQuery.accessibleNavigation ? 1.0 : widget.animationController.value);
 
         final draggableChild = !widget.enableDrag
             ? child

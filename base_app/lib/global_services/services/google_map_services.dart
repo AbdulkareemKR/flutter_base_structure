@@ -1,5 +1,7 @@
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'dart:developer';
+
+import 'package:garage_client/global_services/models/order.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 class GoogleMapServices {
@@ -12,7 +14,8 @@ class GoogleMapServices {
         await launchUrl(googleMapLaunchUri);
       }
     } catch (e) {
-      e.logException();
+      log('$e');
+      ;
     }
   }
 }

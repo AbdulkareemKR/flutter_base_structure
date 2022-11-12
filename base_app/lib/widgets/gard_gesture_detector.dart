@@ -4,8 +4,8 @@ import 'package:garage_client/features/cars/presentation/screens/add_cars_screen
 import 'package:garage_client/features/loaction/presentation/screens/location_screen.dart';
 import 'package:garage_client/features/login/presentation/screens/login_screen.dart';
 import 'package:garage_client/global_providers/car_owner_provider.dart';
-import 'package:garage_core/services/easy_navigator.dart';
-import 'package:garage_core/widgets/bottom_sheet/bottom_sheet_navigator.dart';
+import 'package:garage_client/global_services/services/easy_navigator.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/bottom_sheet_navigator.dart';
 
 class GuardGestureDetector extends ConsumerWidget {
   const GuardGestureDetector({

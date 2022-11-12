@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import "package:garage_core/enums/complaint_status.dart";
-import 'package:garage_core/enums/complaint_type.dart';
-import 'package:garage_core/services/enum_services.dart';
-export 'package:garage_core/enums/complaint_type.dart';
-export "package:garage_core/enums/complaint_status.dart";
+import "package:garage_client/global_services/enums/complaint_status.dart";
+import 'package:garage_client/global_services/enums/complaint_type.dart';
+import 'package:garage_client/global_services/services/enum_services.dart';
+export 'package:garage_client/global_services/enums/complaint_type.dart';
+export "package:garage_client/global_services/enums/complaint_status.dart";
 
 class Complaints {
   String id;
@@ -64,15 +64,13 @@ class Complaints {
       body: map['body'] as String,
       resolution: map['resolution'] as String,
       type: enumFromString<ComplaintType>(ComplaintType.values, map["type"]),
-      status: enumFromString<ComplaintStatus>(
-          ComplaintStatus.values, map['status'] as String),
+      status: enumFromString<ComplaintStatus>(ComplaintStatus.values, map['status'] as String),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Complaints.fromJson(String source) =>
-      Complaints.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Complaints.fromJson(String source) => Complaints.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {

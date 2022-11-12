@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:collection/collection.dart';
-import 'package:garage_core/models/exportable.dart';
-import 'package:garage_core/models/translatable.dart';
+import 'package:garage_client/global_services/models/exportable.dart';
+import 'package:garage_client/global_services/models/translatable.dart';
 
 class Bank implements Exportable {
   final String id;

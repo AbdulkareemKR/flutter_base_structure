@@ -1,12 +1,13 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:garage_core/models/car.dart';
-import 'package:garage_core/models/color.dart';
-import 'package:garage_core/models/service.dart';
-import 'package:garage_core/models/translatable.dart';
-import 'package:garage_core/models/user_car.dart';
-import 'package:garage_core/services/car_owner_services.dart';
-import 'package:garage_core/services/firestore_services.dart';
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'package:garage_client/global_services/models/car.dart';
+import 'package:garage_client/global_services/models/color.dart';
+import 'package:garage_client/global_services/models/service.dart';
+import 'package:garage_client/global_services/models/translatable.dart';
+import 'package:garage_client/global_services/models/user_car.dart';
+import 'package:garage_client/global_services/services/car_owner_services.dart';
+import 'package:garage_client/global_services/services/firestore_services.dart';
 
 String getCarName(String carId) {
   // TODO : get the car name from car constant model using carId
@@ -68,7 +69,8 @@ Future<Map<String, Translatable>> getCarCompanyBrand(String carId) async {
     }
     return carCompanyBrand;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return {};
   }
 }
@@ -83,7 +85,8 @@ Future<String> getCarCompany(String carId) async {
       return '';
     }
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return '';
   }
 }
@@ -101,8 +104,9 @@ Future<Car?> getCarFromId(String carId) async {
       return car;
     }
   } catch (e) {
-    GLogger.warning('The car dose not exist!');
-    e.logException();
+    log('The car dose not exist!');
+    log('$e');
+    ;
     return null;
   }
   return null;
@@ -144,7 +148,8 @@ Future<List<UserCar>> getUserCarsFromUid(String uid) async {
     }
   } catch (e) {
     /// in case of any errors log the error then return empty list
-    e.logException();
+    log('$e');
+    ;
 
     return [];
   }
@@ -160,7 +165,8 @@ Stream<List<UserCar>> getUserCarsStream(String uid) {
     return userCarsDocs;
   } catch (e) {
     /// in case of any errors log the error then return empty list
-    e.logException();
+    log('$e');
+    ;
 
     return const Stream.empty();
   }
@@ -176,7 +182,8 @@ Future<List<Car>> getConstCars() async {
       return [];
     }
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return [];
   }
 }
@@ -191,7 +198,8 @@ Future<List<CarColor>> getConstColors() async {
       return [];
     }
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return [];
   }
 }
@@ -215,7 +223,8 @@ Future<bool> addNewCar(UserCar car) async {
 
     return true;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return false;
   }
 }
@@ -234,7 +243,8 @@ Future<bool> editCar(UserCar car) async {
     }
     return true;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return false;
   }
 }
@@ -269,7 +279,8 @@ Future<bool> deleteCar(String carId) async {
       return false;
     }
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return false;
   }
 }
@@ -277,10 +288,11 @@ Future<bool> deleteCar(String carId) async {
 Future<bool> setDefaultCar(Map<String, dynamic>? carMap, String uid) async {
   try {
     FirestoreServices.carOwnersCollection.doc(uid).update({'defaultCar': carMap ?? FieldValue.delete()});
-    GLogger.debug('Default car has been changed for user with uid $uid');
+    log('Default car has been changed for user with uid $uid');
     return true;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return false;
   }
 }

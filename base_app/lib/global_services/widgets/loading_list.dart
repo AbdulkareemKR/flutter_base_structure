@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:garage_core/widgets/loading_container.dart';
+import 'package:garage_client/global_services/widgets/loading_container.dart';
 import 'package:sizer/sizer.dart';
 
 class LoadingList extends StatelessWidget {

@@ -1,6 +1,7 @@
-import 'package:garage_core/models/wallet.dart';
-import 'package:garage_core/services/firestore_services.dart';
-import 'package:garage_core/utilis/logger/extensions.dart';
+import 'dart:developer';
+
+import 'package:garage_client/global_services/models/wallet.dart';
+import 'package:garage_client/global_services/services/firestore_services.dart';
 
 import '../enums/currency.dart';
 
@@ -24,7 +25,8 @@ Future<Wallet?> getUserWallet(String uid) async {
       return wallet;
     }
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
   }
   return null;
 }
@@ -39,7 +41,8 @@ Stream<Wallet?> getWalletStream(String uid) {
     });
     return walletStream;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     return const Stream.empty();
   }
 }

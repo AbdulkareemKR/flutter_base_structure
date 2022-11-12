@@ -1,10 +1,10 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:firebase_core_platform_interface/firebase_core_platform_interface.dart';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:garage_core/utilis/logger/g_logger.dart';
 
 /// A representation of all firebase configurations
 class FirebaseEnvironmentVariables {
@@ -102,7 +102,7 @@ class FirebaseEnvironmentVariables {
       _apiKey = appIdAndroid;
       _appId = appIdAndroid;
     } else {
-      GLogger.debug("Couldn't find platform api, going set android api");
+      log("Couldn't find platform api, going set android api");
       _apiKey = appIdAndroid;
       _appId = appIdAndroid;
     }

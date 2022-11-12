@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:garage_client/constants/constants.dart';
-import 'package:garage_core/services/google_direction_services/direction_api.dart';
-import 'package:garage_core/services/location_services.dart';
+import 'package:garage_client/global_services/services/google_direction_services/direction_api.dart';
+import 'package:garage_client/global_services/services/location_services.dart';
 import 'package:garage_client/app.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:garage_core/models/order.dart';
-import 'package:garage_core/services/google_direction_services/polyline_result.dart';
+import 'package:garage_client/global_services/models/order.dart';
+import 'package:garage_client/global_services/services/google_direction_services/polyline_result.dart';
 import 'package:garage_client/environments/environments.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

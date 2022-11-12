@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,13 +24,12 @@ import 'package:garage_client/widgets/custom_button/enums/button_size.dart';
 import 'package:garage_client/widgets/custom_button/enums/button_style.dart';
 import 'package:garage_client/widgets/garage_divider.dart';
 import 'package:garage_client/widgets/radio_button/radio_button.dart';
-import 'package:garage_core/enums/currency.dart';
-import 'package:garage_core/models/service.dart';
-import 'package:garage_core/utilis/logger/extensions.dart';
-import 'package:garage_core/widgets/bottom_sheet/utils/sheet.dart';
-import 'package:garage_core/widgets/conditionary_widget/conditionary_widget.dart';
-import 'package:garage_core/widgets/loading_container.dart';
-import 'package:garage_core/widgets/price_text.dart';
+import 'package:garage_client/global_services/enums/currency.dart';
+import 'package:garage_client/global_services/models/service.dart';
+import 'package:garage_client/global_services/widgets/bottom_sheet/utils/sheet.dart';
+import 'package:garage_client/global_services/widgets/conditionary_widget/conditionary_widget.dart';
+import 'package:garage_client/global_services/widgets/loading_container.dart';
+import 'package:garage_client/global_services/widgets/price_text.dart';
 
 class ReviewBookingScreen extends ConsumerStatefulWidget {
   const ReviewBookingScreen({Key? key, required this.service}) : super(key: key);
@@ -87,7 +88,7 @@ class _ReviewBookingScreenState extends ConsumerState<ReviewBookingScreen> {
                       ref.watch(cityNameProvider(carOwner?.defaultLocation?.cityId ?? '')).when(
                               data: (cityName) => cityName.translated + ', ',
                               error: ((error, stackTrace) {
-                                error.logException();
+                                log('$error');
                                 return 'unknowLocation'.translate();
                               }),
                               loading: (() {
@@ -202,7 +203,7 @@ class _ReviewBookingScreenState extends ConsumerState<ReviewBookingScreen> {
                         price: price.toDouble(),
                       ),
                       error: (error, stackTrace) {
-                        error.logException(stackTrace: stackTrace);
+                        log('$error');
                         return const SizedBox.shrink();
                       },
                       loading: () {
@@ -230,7 +231,7 @@ class _ReviewBookingScreenState extends ConsumerState<ReviewBookingScreen> {
                       );
                     },
                     error: (error, stackTrace) {
-                      error.logException(stackTrace: stackTrace);
+                      log('$error');
                       return const SizedBox.shrink();
                     },
                     loading: () {

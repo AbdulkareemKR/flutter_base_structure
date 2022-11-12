@@ -1,4 +1,4 @@
-import 'package:garage_core/utilis/logger/g_logger.dart';
+import 'dart:developer';
 
 T enumFromString<T>(Iterable<T> values, String? value) {
   return values.firstWhere((type) {
@@ -76,7 +76,8 @@ String getEnumReadable<T>(T enumValue, String localCode) {
     final enumReadable = enumLocalization[enumType]![enumValue]!;
     return enumReadable;
   } catch (e) {
-    e.logException();
+    log('$e');
+    ;
     throw Exception('The enum value was not found');
   }
 }
