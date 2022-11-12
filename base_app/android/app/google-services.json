@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "967378291642",
+    "project_id": "garage-env-development",
+    "storage_bucket": "garage-env-development.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:967378291642:android:67c465bad4d1107d58ab83",
+        "android_client_info": {
+          "package_name": "com.trygarage.carowner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "967378291642-o25nd8ve2mkb9g0r8490q97hte8qd529.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRy3y7WQsO67dN3TLA8smPNt4h3bEU17M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "967378291642-o25nd8ve2mkb9g0r8490q97hte8qd529.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "967378291642-kqgigkair6cmc7ilodrqodsc1c0t1g4q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.garageClient"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
