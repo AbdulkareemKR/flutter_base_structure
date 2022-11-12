@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:garage_client/features/cars/presentation/screens/add_cars_screen.dart';
-import 'package:garage_client/features/loaction/presentation/screens/location_screen.dart';
 import 'package:garage_client/features/login/presentation/screens/login_screen.dart';
 import 'package:garage_client/global_providers/car_owner_provider.dart';
 import 'package:garage_client/global_services/services/easy_navigator.dart';
-import 'package:garage_client/global_services/widgets/bottom_sheet/bottom_sheet_navigator.dart';
 
 class GuardGestureDetector extends ConsumerWidget {
   const GuardGestureDetector({
@@ -24,12 +21,7 @@ class GuardGestureDetector extends ConsumerWidget {
         final carOwner = ref.read(carOwnerProvider).asData?.value;
 
         if (carOwner == null) {
-          showCustomBottomSheet(context: context, child: const LoginScreen());
-        } else if (carOwner.defaultCar == null) {
-          showCustomBottomSheet(context: context, child: const AddCarsScreen());
-        } else if (carOwner.defaultLocation == null) {
-          EasyNavigator.openPage(
-              context: context, page: const LocationScreen(), isAnimated: false, isCupertinoStyle: false);
+          EasyNavigator.openPage(context: context, page: const LoginScreen());
         } else {
           onTap();
         }

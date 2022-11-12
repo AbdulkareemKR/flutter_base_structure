@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:garage_client/features/orders/presentation/screens/orders_screen.dart';
 import 'package:garage_client/widgets/animated_dialog.dart';
 import 'package:garage_client/global_services/services/auth_services.dart';
-import 'package:garage_client/features/home/presentation/screens/home_screen.dart';
 import 'package:garage_client/features/login/domain/auth_reoo.dart';
 import 'package:garage_client/global_services/services/easy_navigator.dart';
 import 'package:garage_client/localization/extensions.dart';
@@ -47,7 +47,7 @@ class LoginScreenController {
       await login();
 
       // If everything went good and the user was logged in
-      EasyNavigator.openPage(context: context, page: const HomeScreen(), isPushReplaced: true);
+      EasyNavigator.openPage(context: context, page: const OrdersScreen(), isPushReplaced: true);
     } catch (e) {
       // If the user enters invalid email/password, we will show an error dialog
       log(e.toString());

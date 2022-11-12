@@ -7,6 +7,7 @@ import 'package:garage_client/constants/border_radius_const.dart';
 import 'package:garage_client/constants/constants.dart';
 import 'package:garage_client/constants/spacing_const.dart';
 import 'package:garage_client/features/settings/presentation/controller/settings_controller.dart';
+import 'package:garage_client/features/settings/presentation/widgets/setting_item.dart';
 import 'package:garage_client/global_providers/car_owner_provider.dart';
 import 'package:garage_client/localization/extensions.dart';
 import 'package:garage_client/utils/app_version.dart';
@@ -63,27 +64,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           textDirection: TextDirection.ltr,
                           style: context.textThemes.bodySmall?.copyWith(color: ColorsConst.cosmicCobalt.shade100),
                         ),
-                        SpacingConst.vSpacing20,
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            SettingBox(
-                              onTap: _controller.onOrdersClick,
-                              icon: GarageIcons.Cart,
-                              text: 'settings.orders'.translate(),
-                            ),
-                            SettingBox(
-                              onTap: _controller.onWalletClick,
-                              icon: GarageIcons.Wallet,
-                              text: 'settings.wallet'.translate(),
-                            ),
-                            SettingBox(
-                              onTap: _controller.onCarsClick,
-                              icon: GarageIcons.Car,
-                              text: 'settings.myCars'.translate(),
-                            )
-                          ],
-                        )
                       ]);
                     });
                   }),
@@ -119,32 +99,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             icon: GarageIcons.User,
             text: 'settings.profile'.translate(),
           ),
-
-          ///TODO: uncomment when ready
-          // SettingItem(
-          //   onTap: _controller.onGiftClick,
-          //   icon: GarageIcons.Gift,
-          //   text: 'settings.gifts'.translate(),
-          // ),
-
-          ///TODO: uncomment when ready
-          // SettingItem(
-          //   onTap: _controller.onCouponsClick,
-          //   icon: GarageIcons.Ticket,
-          //   text: 'settings.coupons'.translate(),
-          // ),
-
-          ///TODO: uncomment when ready
-          // SettingItem(
-          //   onTap: _controller.onHelpClick,
-          //   icon: GarageIcons.Info_Square,
-          //   text: 'settings.help'.translate(),
-          // ),
-          SettingItem(
-            onTap: _controller.onTermsClick,
-            icon: GarageIcons.Document,
-            text: 'settings.terms'.translate(),
-          ),
           SettingItem(
             iconColor: ColorsConst.negativeRed,
             onTap: _controller.onSignOutClick,
@@ -164,112 +118,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             height: 30.h,
           ),
         ],
-      ),
-    );
-  }
-}
-
-class SettingItem extends StatelessWidget {
-  const SettingItem({
-    Key? key,
-    required this.text,
-    required this.icon,
-    required this.onTap,
-    this.iconColor = ColorsConst.cosmicCobalt,
-  }) : super(key: key);
-
-  final String text;
-  final IconData icon;
-  final void Function() onTap;
-  final Color iconColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: (() {
-        HapticFeedback.mediumImpact();
-        onTap();
-      }),
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 9.h, horizontal: 7.w),
-        child: Row(children: [
-          SpacingConst.hSpacing8,
-          Container(
-            child: Icon(
-              icon,
-              size: 15.sp,
-              color: iconColor,
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(6.sp),
-              color: ColorsConst.cultured,
-            ),
-            width: 30.w,
-            height: 30.w,
-          ),
-          SpacingConst.hSpacing16,
-          Text(
-            text,
-            style: context.textThemes.bodySmall,
-          )
-        ]),
-        margin: EdgeInsets.symmetric(vertical: 4.h),
-        width: 311.w,
-        height: 48.h,
-        decoration: BoxDecoration(
-            color: ColorsConst.white,
-            boxShadow: [BoxShadow(color: ColorsConst.black.withOpacity(0.08), blurRadius: 10)],
-            borderRadius: BorderRadius.circular(14.sp)),
-      ),
-    );
-  }
-}
-
-class SettingBox extends StatelessWidget {
-  const SettingBox({
-    Key? key,
-    required this.icon,
-    required this.text,
-    required this.onTap,
-  }) : super(key: key);
-
-  final IconData icon;
-  final String text;
-  final void Function() onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: (() {
-        HapticFeedback.mediumImpact();
-        onTap();
-      }),
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 17.19.w),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 30.r,
-                width: 30.r,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadiusConst.smallBorderRadius,
-                  color: ColorsConst.cultured,
-                ),
-                child: Icon(
-                  icon,
-                  color: ColorsConst.cosmicCobalt,
-                ),
-              ),
-              SizedBox(
-                height: 5.h,
-              ),
-              Text(text)
-            ]),
-        width: 109.w,
-        height: 88.h,
-        decoration: BoxDecoration(color: ColorsConst.white, borderRadius: BorderRadius.circular(13.sp)),
       ),
     );
   }

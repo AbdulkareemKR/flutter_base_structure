@@ -144,53 +144,6 @@ class _OrderDetailsState extends ConsumerState<OrderDetailsScreen> {
                       ),
                     ],
                   ),
-                  SpacingConst.vSpacing20,
-                  Center(
-                    child: Text(
-                      "orders.help".translate(),
-                      style: context.textThemes.bodyLarge,
-                    ),
-                  ),
-                  SpacingConst.vSpacing16,
-                  HelpListItem(
-                    title: "orders.report_car_safety".translate(),
-                    description: "orders.keep_us_informed".translate(),
-                    svgString: AssetsConst.infoSquareSvg,
-                    onHelpItemPressed: _viewController.onCarProblemsPressed,
-                    padding: EdgeInsets.symmetric(horizontal: 15.w),
-                  ),
-                  SpacingConst.vSpacing16,
-                  HelpListItem(
-                    title: "orders.lost_items".translate(),
-                    description: "orders.contact_service_provider".translate(),
-                    svgString: AssetsConst.bagSvg,
-                    onHelpItemPressed: _viewController.onLostItemsPressed,
-                    padding: EdgeInsets.symmetric(horizontal: 15.w),
-                  ),
-                  SpacingConst.vSpacing16,
-                  ConditionaryWidget(
-                    condition: order.isActiveOrder,
-                    trueWidget: HelpListItem(
-                      title: "orders.trackOrder".translate(),
-                      description: "orders.trackOrderDescription".translate(),
-                      svgString: AssetsConst.starSvg,
-                      padding: EdgeInsets.symmetric(horizontal: 15.w),
-                      onHelpItemPressed: () => _viewController.onTrackOrderPressed(order.id ?? ""),
-                    ),
-                    falseWidget: Consumer(builder: (context, ref, child) {
-                      final isRatedOrder = ref.watch(isRatedOrderProvider(order));
-                      return ConditionaryWidget(
-                          // If the order is completed and not rated yet, show "rate us widget"
-                          condition: order.status == OrderStatus.completed && !isRatedOrder,
-                          trueWidget: HelpListItem(
-                            title: "orders.rate_service".translate(),
-                            description: "orders.share_your_opinion".translate(),
-                            svgString: AssetsConst.starSvg,
-                            padding: EdgeInsets.symmetric(horizontal: 15.w),
-                            onHelpItemPressed: () => _viewController.onServiceRatingPressed(order),
-                          ));
-                    }),
-                  )
                 ],
               ),
             ),
