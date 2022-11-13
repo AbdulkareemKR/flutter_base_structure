@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:garage_client/app.dart';
+import 'package:garage_client/constants/border_radius_const.dart';
 import 'package:garage_client/constants/constants.dart';
 import 'package:garage_client/constants/spacing_const.dart';
-import 'package:garage_client/global_services/constants/constants.dart';
 import 'package:garage_client/global_services/models/order.dart';
 import 'package:garage_client/localization/localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,7 +36,7 @@ class _OrderListItemState extends ConsumerState<OrderListItem> {
         height: 63.h,
         width: 310.w,
         decoration: BoxDecoration(
-          borderRadius: smallBorderRadius,
+          borderRadius: BorderRadiusConst.smallBorderRadius,
           color: ColorsConst.white,
           boxShadow: [ShadowConst.blackShadow],
         ),
@@ -48,8 +48,8 @@ class _OrderListItemState extends ConsumerState<OrderListItem> {
               Container(
                 width: 30.w,
                 height: 30.w,
-                decoration: const BoxDecoration(
-                  borderRadius: smallBorderRadius,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadiusConst.smallBorderRadius,
                   color: ColorsConst.cultured,
                 ),
                 child: Icon(
@@ -84,9 +84,9 @@ class _OrderListItemState extends ConsumerState<OrderListItem> {
                   children: [
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: SpacingConst.spacing6.w),
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: ColorsConst.cultured,
-                        borderRadius: smallBorderRadius,
+                        borderRadius: BorderRadiusConst.smallBorderRadius,
                       ),
                       child: Text(
                         "order_status.${widget.order.status.name}".translate(),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:garage_client/constants/border_radius_const.dart';
 import 'package:garage_client/constants/constants.dart';
 import 'package:garage_client/constants/spacing_const.dart';
-import 'package:garage_client/global_services/constants/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
 
@@ -31,7 +31,7 @@ class HelpListItem extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: SpacingConst.spacing6.w),
           decoration: BoxDecoration(
-            borderRadius: smallBorderRadius,
+            borderRadius: BorderRadiusConst.smallBorderRadius,
             color: ColorsConst.white,
             boxShadow: [ShadowConst.blackShadow],
           ),
@@ -44,8 +44,8 @@ class HelpListItem extends StatelessWidget {
                   padding: EdgeInsets.all(SpacingConst.spacing6.w),
                   height: 30.w,
                   width: 30.w,
-                  decoration: const BoxDecoration(
-                    borderRadius: smallBorderRadius,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadiusConst.smallBorderRadius,
                     color: ColorsConst.cultured,
                   ),
                   child: SvgPicture.asset(svgString),

@@ -4,8 +4,8 @@ import 'package:garage_client/constants/spacing_const.dart';
 import 'package:garage_client/features/login/presentation/controllers/login_screen_controller.dart';
 import 'package:garage_client/widgets/custom_button/custom_button.dart';
 import 'package:garage_client/widgets/custom_textfield/custom_textfield.dart';
+import 'package:garage_client/widgets/custom_textfield/textfield_types.dart';
 
-import 'package:garage_client/global_services/widgets/custom_textfield/textfield_types.dart';
 
 import 'package:garage_client/widgets/locale_positioned.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

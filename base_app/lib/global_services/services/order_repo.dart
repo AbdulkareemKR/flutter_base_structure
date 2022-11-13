@@ -12,7 +12,7 @@ final streamedOrderProvider = StreamProvider.family<Order?, String?>((ref, order
 });
 
 class OrderRepo {
-  final FirestoreRepo firestoreRepo;
+  final FirestoreRepp  firestoreRepo;
   OrderRepo({
     required this.firestoreRepo,
   });

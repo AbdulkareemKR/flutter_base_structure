@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:garage_client/constants/border_radius_const.dart';
 import 'package:garage_client/constants/colors_const.dart';
 import 'package:garage_client/constants/icons/garage_icons.dart';
 import 'package:garage_client/constants/spacing_const.dart';
-import 'package:garage_client/global_services/constants/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garage_client/utils/theme/extensions.dart';
 
@@ -41,7 +41,7 @@ class _ExpandableContainerState extends State<ExpandableContainer> {
         height: !widget.isExpanded ? widget.initialHeight : widget.expandedHeight,
         width: widget.width,
         decoration: BoxDecoration(
-          borderRadius: smallBorderRadius,
+          borderRadius: BorderRadiusConst.smallBorderRadius,
           border: Border.all(
             color: ColorsConst.disableGrey,
           ),

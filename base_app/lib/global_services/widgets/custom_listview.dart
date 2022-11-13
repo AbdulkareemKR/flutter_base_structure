@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:garage_client/global_services/constants/constants.dart';
 import 'package:sizer/sizer.dart';
 
 class CustomListView extends StatelessWidget {
