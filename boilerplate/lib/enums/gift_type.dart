@@ -1,0 +1,1 @@
+enum GiftType {service, money}

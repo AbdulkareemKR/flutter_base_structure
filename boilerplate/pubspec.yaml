@@ -1,0 +1,139 @@
+name: garage_client
+description: A mobile application connects users with car service providers, allowing them to select a service, and Garage will link them with the best service provider.
+
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 0.0.2+6
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+
+dependencies:
+  # Firebase
+  firebase_auth: ^4.1.1
+  firebase_core: ^2.1.1
+  # firebase_storage: ^10.2.17
+  firebase_messaging: ^14.0.4
+  cloud_firestore: ^4.0.4
+  cloud_functions: ^4.0.3
+
+  # Essentials
+  http: ^0.13.4
+  get_it: ^7.2.0
+  timezone: ^0.9.0
+  flutter_svg: ^1.1.0
+  jovial_svg: ^1.1.6
+  geolocator: ^9.0.2
+  cached_network_image: ^3.2.1
+
+  logger:
+    git:
+      url: https://github.com/GarageAppTeam/logger.git
+      ref: master # branch
+
+
+  # Tracking
+  amplitude_flutter: ^3.9.0
+
+  # Assets
+  cupertino_icons: ^1.0.2
+
+  # UI
+  flutter_screenutil: ^5.5.4
+  shimmer: ^2.0.0
+  lottie: ^1.4.1
+
+
+  # Map
+  google_maps_flutter: ^2.1.8
+  location: ^4.4.0
+
+  # Security
+  flutter_dotenv: ^5.0.2
+
+  flutter:
+    sdk: flutter
+
+  # Essentials
+  intl: ^0.17.0
+  uni_links: ^0.5.1
+  url_launcher: ^6.1.2
+  sentry_flutter: ^6.5.1
+  package_info_plus: ^1.4.3+1
+
+  # State Management
+  flutter_riverpod: ^2.0.2
+  riverpod_generator: ^1.0.4
+  riverpod_annotation: ^1.0.4
+
+  # Native
+  flutter_native_splash: ^2.2.6
+
+  # Freezed
+  freezed: ^2.1.0+1
+  build_runner: ^2.2.0
+  json_serializable:
+    ^6.3.1
+
+
+  #payment
+  hyperpay:
+    git:
+      url: https://github.com/GarageAppTeam/hyperpay.git
+      ref: main # branch name
+
+  logger_flutter:
+    git:
+      url: https://github.com/GarageAppTeam/logger_flutter.git
+      ref: master # branch name
+
+
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+  flutter_launcher_icons: ^0.9.3
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/.env/
+    - assets/images/
+    - assets/images/icons/
+    - assets/images/icons/svgs/
+    - assets/languages/
+    - assets/svg/
+    - assets/lottie/
+
+  fonts:
+    - family: DinNext
+      fonts:
+        - asset: assets/fonts/ArbFONTS-DINNextLTArabic-UltraLight-2.ttf
+          weight: 200
+
+        - asset: assets/fonts/ArbFONTS-DINNEXTLTARABIC-LIGHT-2-2.ttf
+          weight: 300
+
+        - asset: assets/fonts/ArbFONTS-DINNextLTArabic-Medium-2.ttf
+          weight: 500
+
+        - asset: assets/fonts/ArbFONTS-DINNextLTArabic-Regular-2.ttf
+          weight: 400
+
+        - asset: assets/fonts/ArbFONTS-DINNextLTArabic-Bold-2.ttf
+          weight: 600
+
+        - asset: assets/fonts/ArbFONTS-DINNextLTArabic-Heavy2-1.ttf
+          weight: 700
+
+        - asset: assets/fonts/ArbFONTS-DINNextLTArabic-Black-2.ttf
+          weight: 800
+
+    - family: garage_icons
+      fonts:
+        - asset: assets/icons/garage_icons.ttf

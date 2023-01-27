@@ -5,22 +5,22 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "base app (development)",
-      "cwd": "base_app",
+      "name": "boilerplate (development)",
+      "cwd": "boilerplate",
       "request": "launch",
       "type": "dart",
       "args": ["--dart-define", "ENVIRONMENT_TYPE=development"]
     },
     {
-      "name": "base app (staging)",
-      "cwd": "base_app",
+      "name": "boilerplate (staging)",
+      "cwd": "boilerplate",
       "request": "launch",
       "type": "dart",
       "args": ["--dart-define", "ENVIRONMENT_TYPE=staging"]
     },
     {
-      "name": "base app (production)",
-      "cwd": "base_app",
+      "name": "boilerplate (production)",
+      "cwd": "boilerplate",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release",
