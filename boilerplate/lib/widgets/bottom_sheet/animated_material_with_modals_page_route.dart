@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:garage_client/widgets/bottom_sheet/src.dart';
+import 'package:garage_client/widgets/bottom_sheet/src.dart' as src;
 
 class AnimatedMaterialWithModalsPageRoute<T> extends MaterialPageRoute<T> {
   /// Construct a MaterialPageRoute whose contents are defined by [builder].
@@ -14,9 +14,13 @@ class AnimatedMaterialWithModalsPageRoute<T> extends MaterialPageRoute<T> {
     RouteSettings? settings,
     bool maintainState = true,
     bool fullscreenDialog = false,
-  }) : super(settings: settings, fullscreenDialog: fullscreenDialog, builder: builder, maintainState: maintainState);
+  }) : super(
+            settings: settings,
+            fullscreenDialog: fullscreenDialog,
+            builder: builder,
+            maintainState: maintainState);
 
-  ModalBottomSheetRoute? _nextModalRoute;
+  src.ModalBottomSheetRoute? _nextModalRoute;
 
   @override
   bool canTransitionTo(TransitionRoute<dynamic> nextRoute) {
@@ -25,7 +29,8 @@ class AnimatedMaterialWithModalsPageRoute<T> extends MaterialPageRoute<T> {
     late bool isAnimated;
 
     try {
-      isAnimated = ((nextRoute.settings.arguments ?? {'isAnimated': true}) as Map)['isAnimated'] as bool;
+      isAnimated = ((nextRoute.settings.arguments ?? {'isAnimated': true})
+          as Map)['isAnimated'] as bool;
     } catch (e) {
       isAnimated = true;
     }
@@ -34,14 +39,15 @@ class AnimatedMaterialWithModalsPageRoute<T> extends MaterialPageRoute<T> {
 
     return (nextRoute is MaterialPageRoute && !nextRoute.fullscreenDialog) ||
         (nextRoute is CupertinoPageRoute && !nextRoute.fullscreenDialog) ||
-        (nextRoute is MaterialWithModalsPageRoute && !nextRoute.fullscreenDialog) ||
+        (nextRoute is src.MaterialWithModalsPageRoute &&
+            !nextRoute.fullscreenDialog) ||
         (nextRoute is ModalBottomSheetRoute) ||
         isAnimated;
   }
 
   @override
   void didChangeNext(Route? nextRoute) {
-    if (nextRoute is ModalBottomSheetRoute) {
+    if (nextRoute is src.ModalBottomSheetRoute) {
       _nextModalRoute = nextRoute;
     }
 
@@ -63,17 +69,20 @@ class AnimatedMaterialWithModalsPageRoute<T> extends MaterialPageRoute<T> {
   // Duration get transitionDuration => const Duration(milliseconds: 600);
 
   @override
-  Widget buildTransitions(
-      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
     final theme = Theme.of(context).pageTransitionsTheme;
     final nextRoute = _nextModalRoute;
     if (nextRoute != null) {
       if (!secondaryAnimation.isDismissed) {
         // Avoid default transition theme to animate when a new modal view is pushed
-        final fakeSecondaryAnimation = Tween<double>(begin: 0, end: 0).animate(secondaryAnimation);
+        final fakeSecondaryAnimation =
+            Tween<double>(begin: 0, end: 0).animate(secondaryAnimation);
 
-        final defaultTransition = theme.buildTransitions<T>(this, context, animation, fakeSecondaryAnimation, child);
-        return nextRoute.getPreviousRouteTransition(context, secondaryAnimation, defaultTransition);
+        final defaultTransition = theme.buildTransitions<T>(
+            this, context, animation, fakeSecondaryAnimation, child);
+        return nextRoute.getPreviousRouteTransition(
+            context, secondaryAnimation, defaultTransition);
       } else {
         _nextModalRoute = null;
       }

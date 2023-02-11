@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../bottom_sheet_route.dart';
+import 'package:garage_client/widgets/bottom_sheet/bottom_sheet_route.dart'
+    as route;
 
 const Radius _default_bar_top_radius = Radius.circular(15);
 
@@ -31,46 +32,53 @@ class BarBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: overlayStyle ?? SystemUiOverlayStyle.light,
-      child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.center, children: [
-        const SizedBox(height: 12),
-        const SafeArea(
-          bottom: false,
-          child: SizedBox.shrink(),
-        ),
-        const SizedBox(height: 8),
-        Flexible(
-          flex: 1,
-          fit: FlexFit.loose,
-          child: Material(
-            shape: shape ??
-                const RoundedRectangleBorder(
-                  side: BorderSide(),
-                  borderRadius: BorderRadius.only(topLeft: _default_bar_top_radius, topRight: _default_bar_top_radius),
-                ),
-            clipBehavior: clipBehavior ?? Clip.hardEdge,
-            elevation: elevation ?? 2,
-            child: SizedBox(
-              width: double.infinity,
-              child: MediaQuery.removePadding(
-                  context: context,
-                  removeTop: true,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      control ??
-                          Container(
-                            height: 6,
-                            width: 40,
-                            decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(6)),
-                          ),
-                      const SizedBox(height: 8),
-                      child,
-                    ],
-                  )),
+      child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(height: 12),
+            const SafeArea(
+              bottom: false,
+              child: SizedBox.shrink(),
             ),
-          ),
-        ),
-      ]),
+            const SizedBox(height: 8),
+            Flexible(
+              flex: 1,
+              fit: FlexFit.loose,
+              child: Material(
+                shape: shape ??
+                    const RoundedRectangleBorder(
+                      side: BorderSide(),
+                      borderRadius: BorderRadius.only(
+                          topLeft: _default_bar_top_radius,
+                          topRight: _default_bar_top_radius),
+                    ),
+                clipBehavior: clipBehavior ?? Clip.hardEdge,
+                elevation: elevation ?? 2,
+                child: SizedBox(
+                  width: double.infinity,
+                  child: MediaQuery.removePadding(
+                      context: context,
+                      removeTop: true,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          control ??
+                              Container(
+                                height: 6,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(6)),
+                              ),
+                          const SizedBox(height: 8),
+                          child,
+                        ],
+                      )),
+                ),
+              ),
+            ),
+          ]),
     );
   }
 }
@@ -98,7 +106,8 @@ Future<T?> showBarModalBottomSheet<T>({
 }) async {
   assert(debugCheckHasMediaQuery(context));
   assert(debugCheckHasMaterialLocalizations(context));
-  final result = await Navigator.of(context, rootNavigator: useRootNavigator).push(ModalBottomSheetRoute<T>(
+  final result = await Navigator.of(context, rootNavigator: useRootNavigator)
+      .push(route.ModalBottomSheetRoute<T>(
     builder: builder,
     bounce: bounce,
     closeProgressThreshold: closeProgressThreshold,

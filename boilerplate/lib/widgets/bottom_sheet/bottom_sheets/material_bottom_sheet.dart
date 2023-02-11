@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:garage_client/widgets/bottom_sheet/src.dart';
+import 'package:garage_client/widgets/bottom_sheet/src.dart' as src;
 
 /// Shows a modal material design bottom sheet.
 Future<T?> showMaterialModalBottomSheet<T>({
@@ -26,7 +26,7 @@ Future<T?> showMaterialModalBottomSheet<T>({
   assert(debugCheckHasMediaQuery(context));
   assert(debugCheckHasMaterialLocalizations(context));
   final result = await Navigator.of(context, rootNavigator: useRootNavigator)
-      .push(ModalBottomSheetRoute<T>(
+      .push(src.ModalBottomSheetRoute<T>(
     builder: builder,
     closeProgressThreshold: closeProgressThreshold,
     containerBuilder: _materialContainerBuilder(
@@ -52,7 +52,7 @@ Future<T?> showMaterialModalBottomSheet<T>({
 }
 
 //Default container builder is the Material Appearance
-WidgetWithChildBuilder _materialContainerBuilder(BuildContext context,
+src.WidgetWithChildBuilder _materialContainerBuilder(BuildContext context,
     {Color? backgroundColor,
     double? elevation,
     ThemeData? theme,
