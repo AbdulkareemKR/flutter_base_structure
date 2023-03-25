@@ -1,4 +1,0 @@
-enum UserType {
-  carOwner,
-  technician,
-}
