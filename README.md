@@ -1,6 +1,4 @@
-# Qaree-App
-
-Qaree is a digital product aiming to facilitate group reading by enabling readers to create group cycles online. In addition, individual readers can use Qaree to track their reading status and keep a record of their achievements. Qaree will target regular readers, but also other sectors of Saudi Arabia’s society. That would result in enriching the culture of society and promoting reading between its members. Current products mainly target English-speaking audience with little or no support of Arabic. Some digital products can be used regardless of the language barrier. However, with a socially heavy activity like group reading, it is a must to have a platform that is tailored for local needs and culture. That is where Qaree will fill this gap and provide the desired solution. 
+# Flutter-Firebase-Bilerplate
 
 ### Files Structure
 
